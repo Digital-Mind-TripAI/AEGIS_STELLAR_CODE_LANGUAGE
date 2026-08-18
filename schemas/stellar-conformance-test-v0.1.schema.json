@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-conformance-test-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "status", "checks", "packageIntegrity", "analysisHash", "nativePlanHash", "nativeCodeExecuted", "executionEnabled", "homeostasis"],
+  "properties": {
+    "schema": { "const": "stellar.conformance-test/v0.1" },
+    "status": { "const": "pass" },
+    "checks": { "type": "array", "minItems": 7, "uniqueItems": true },
+    "packageIntegrity": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "analysisHash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "nativePlanHash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "nativeCodeExecuted": { "const": false },
+    "executionEnabled": { "const": false },
+    "homeostasis": { "const": "NOT_EVALUATED" }
+  }
+}

@@ -1,0 +1,12 @@
+module control ·
+export bounded ·
+function bounded ( seed / i32, stop / i32 ) / Result ( i32 ) (
+  let current / i32 ( seed ) ·
+  loop cursor / i32 ( from: 0, max: 3 ) (
+    if equal ( cursor, stop ) ( break · ) ~ otherwise (
+      set current ( wrapping_add ( current, 1 ) ) ·
+      continue ·
+    ) ·
+  ) ·
+  return ok ( current ) ·
+) ·

@@ -1,0 +1,5 @@
+module math ·
+export increment ·
+function increment ( value / i32 ) / Result ( i32 ) (
+  return ok ( add ( value, 1 ) ) ·
+) ·

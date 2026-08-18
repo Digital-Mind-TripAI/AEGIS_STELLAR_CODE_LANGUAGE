@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-native-build-plan-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "target", "profile", "abi", "packageIntegrity", "dependencyLockIntegrity", "symbolTableHash", "effectsHash", "relics", "modules", "effects", "imports", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.native-build-plan/v0.1" },
+    "target": { "const": "windows-x86_64-msvc" },
+    "profile": { "const": "stellar-lab-v0" },
+    "abi": { "const": "stellar-win64-v0.1" },
+    "packageIntegrity": { "$ref": "#/$defs/hash" },
+    "dependencyLockIntegrity": { "$ref": "#/$defs/hash" },
+    "symbolTableHash": { "$ref": "#/$defs/hash" },
+    "effectsHash": { "$ref": "#/$defs/hash" },
+    "relics": { "type": "object", "additionalProperties": { "$ref": "#/$defs/hash" } },
+    "modules": { "type": "array", "minItems": 1, "maxItems": 128 },
+    "effects": { "const": [] },
+    "imports": { "const": [] },
+    "executionEnabled": { "const": false }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" } }
+}

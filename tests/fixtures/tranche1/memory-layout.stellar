@@ -1,0 +1,16 @@
+struct Sample ( active / bool, count / i32, total / i64, weights / array ( f64, 3 ) ) ·
+struct Packet ( code / u32, values / array ( i32, 4 ) ) ·
+struct Wide ( first / u64, second / f64 ) ·
+function inspect_sample ( input / slice ( i32, 16 ) ) / Result ( i32 ) (
+  let first / i32 ( index ( input, 0 ) ) ·
+  return ok ( first ) ·
+) ·
+function local_layout ( input / slice ( i32, 16 ) ) / Result ( i32 ) (
+  let packet / Packet ·
+  set packet.code ( convert_u32 ( 7 ) ) ·
+  set packet.code ( wrapping_add ( packet.code, convert_u32 ( 1 ) ) ) ·
+  let values / array ( i32, 4 ) ·
+  set values ( fill ( values, 2 ) ) ·
+  let observed / i32 ( try_value ( inspect_sample ( input ) ) ) ·
+  return ok ( add ( index ( values, 2 ), observed ) ) ·
+) ·

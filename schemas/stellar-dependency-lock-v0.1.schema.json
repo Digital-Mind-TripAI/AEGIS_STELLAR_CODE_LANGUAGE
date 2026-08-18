@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-dependency-lock-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["dependencyGraphHash", "integrity", "moduleEvidenceHashes", "moduleSourceHashes", "packageIntegrity", "relicHashes", "schema", "symbolTableHash"],
+  "properties": {
+    "schema": { "const": "stellar.dependency-lock/v0.1" },
+    "dependencyGraphHash": { "$ref": "#/$defs/hash" },
+    "integrity": { "$ref": "#/$defs/hash" },
+    "packageIntegrity": { "$ref": "#/$defs/hash" },
+    "symbolTableHash": { "$ref": "#/$defs/hash" },
+    "moduleEvidenceHashes": { "type": "object", "additionalProperties": { "$ref": "#/$defs/hash" } },
+    "moduleSourceHashes": { "type": "object", "additionalProperties": { "$ref": "#/$defs/hash" } },
+    "relicHashes": { "type": "object", "additionalProperties": { "$ref": "#/$defs/hash" } }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" } }
+}

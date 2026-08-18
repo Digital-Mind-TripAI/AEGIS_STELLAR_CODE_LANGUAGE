@@ -1,0 +1,10 @@
+{
+  "schema": "stellar.conformance-golden/v0.1",
+  "entries": [
+    { "family": "grammar", "target": "native/stellar/tests/fixtures/signal-bridge.stellar", "view": "tokens", "sha256": "sha256:67abe8d3bee4969e905865d6074bf7b7c8b0316868e5410d18309bc6b2c01fae" },
+    { "family": "type", "target": "native/stellar/v0_1/tests/fixtures/tranche1/scalar-control.stellar", "view": "hir", "sha256": "sha256:2edb3f1dbc9fe641f6b736e236c895fef2773d1e3aecb74e6b25609af11763fa" },
+    { "family": "layout", "target": "native/stellar/v0_1/tests/fixtures/tranche1/memory-layout.stellar", "view": "layout", "sha256": "sha256:df7bd7f48e54a0893591f5514491bd83afe08fe03e26f30bee15c91ce958565c" },
+    { "family": "abi", "target": "native/stellar/v0_1/tests/fixtures/tranche2/chain/stellar.package.json", "view": "symbols", "sha256": "sha256:023702245bc778ac95c8677e0d4471be818304d7733ebadef75552d1586ebc84" },
+    { "family": "lowering", "target": "native/stellar/v0_1/tests/fixtures/tranche4/control/control.stellar", "view": "mir", "sha256": "sha256:ce79c058f193227971006dd9c3b71264f792881a061d2adcfee9ad606528f85b" }
+  ]
+}

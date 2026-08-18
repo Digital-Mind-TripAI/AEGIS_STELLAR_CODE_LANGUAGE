@@ -1,0 +1,1 @@
+{"schema":"stellar.package/v0.1","name":"chain","version":"0.1.0","target":"windows-x86_64-msvc","profile":"stellar-lab-v0","entry":"app.stellar","modules":["app.stellar","math.stellar"],"relics":[],"capabilities":[]}

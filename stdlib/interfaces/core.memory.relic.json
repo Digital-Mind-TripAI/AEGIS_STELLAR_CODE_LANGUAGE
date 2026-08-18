@@ -1,0 +1,15 @@
+{
+  "schema": "stellar.relic-interface/v0.1",
+  "name": "core.memory",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "abi": "stellar-win64-v0.1",
+  "exports": [
+    {"name":"copy_u8","parameters":["slice(u32,65536)","slice(u32,65536)"],"result":"i64"},
+    {"name":"fill_u8","parameters":["slice(u32,65536)","u32"],"result":"i64"},
+    {"name":"equal_u8","parameters":["slice(u32,65536)","slice(u32,65536)"],"result":"bool"}
+  ],
+  "effects": [],
+  "imports": []
+}

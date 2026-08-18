@@ -1,0 +1,18 @@
+{
+  "schema": "stellar.relic-interface/v0.1",
+  "name": "core.checked",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "abi": "stellar-win64-v0.1",
+  "exports": [
+    {"name":"checked_add_i32","parameters":["i32","i32"],"result":"i32"},
+    {"name":"checked_sub_i32","parameters":["i32","i32"],"result":"i32"},
+    {"name":"checked_mul_i32","parameters":["i32","i32"],"result":"i32"},
+    {"name":"wrapping_add_i32","parameters":["i32","i32"],"result":"i32"},
+    {"name":"wrapping_sub_i32","parameters":["i32","i32"],"result":"i32"},
+    {"name":"wrapping_mul_i32","parameters":["i32","i32"],"result":"i32"}
+  ],
+  "effects": [],
+  "imports": []
+}

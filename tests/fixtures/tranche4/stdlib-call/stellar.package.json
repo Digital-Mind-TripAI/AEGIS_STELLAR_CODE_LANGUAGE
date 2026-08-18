@@ -1,0 +1,11 @@
+{
+  "schema": "stellar.package/v0.1",
+  "name": "stdlib-native-call",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "entry": "app.stellar",
+  "modules": ["app.stellar", "math.stellar"],
+  "relics": ["relics/core.checked.relic.json"],
+  "capabilities": []
+}

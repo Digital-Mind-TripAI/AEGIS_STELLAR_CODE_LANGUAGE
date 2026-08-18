@@ -1,0 +1,9 @@
+module app ·
+import left / left_value ·
+import right / right_value ·
+export main ·
+function main ( seed / i32 ) / Result ( i32 ) (
+  let a / i32 ( try_value ( left_value ( seed ) ) ) ·
+  let b / i32 ( try_value ( right_value ( seed ) ) ) ·
+  return ok ( add ( a, b ) ) ·
+) ·

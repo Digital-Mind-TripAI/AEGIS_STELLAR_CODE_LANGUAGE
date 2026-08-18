@@ -1,0 +1,11 @@
+{
+  "schema": "stellar.package/v0.1",
+  "name": "minimal",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "entry": "main.stellar",
+  "modules": ["main.stellar"],
+  "relics": [],
+  "capabilities": []
+}

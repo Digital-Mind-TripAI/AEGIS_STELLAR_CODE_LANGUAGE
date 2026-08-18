@@ -1,0 +1,17 @@
+{
+  "schema": "stellar.capability-relic/v0.1",
+  "name": "windows.console",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "abi": "stellar-win64-v0.1",
+  "capability": "windows.console.write",
+  "exports": [{"name":"console_write","parameters":["slice(u32,65536)"],"result":"i64"}],
+  "allowedImports": [{"dll":"KERNEL32.dll","symbols":["WriteFile"]}],
+  "relationContractRequired": true,
+  "custodianStewardAuthenticationRequired": true,
+  "osProcessIsolationRequired": true,
+  "authorized": false,
+  "compiled": false,
+  "executionEnabled": false
+}

@@ -1,0 +1,14 @@
+function adjust ( value / i32, enabled / bool ) / Result ( i64 ) (
+  let wide / i64 ( convert_i64 ( value ) ) ·
+  let answer / i64 ( convert_i64 ( 0 ) ) ·
+  if equal ( enabled, true ) ( set answer ( add ( wide, convert_i64 ( 10 ) ) ) · ) ~ otherwise ( set answer ( sub ( wide, convert_i64 ( 10 ) ) ) · ) ·
+  return ok ( answer ) ·
+) ·
+function main ( seed / i32 ) / Result ( i64 ) (
+  let total / i64 ( convert_i64 ( 0 ) ) ·
+  let adjusted / i64 ( try_value ( adjust ( seed, true ) ) ) ·
+  loop step / i32 ( from: 0, max: 3 ) (
+    set total ( add ( total, convert_i64 ( step ) ) ) ·
+  ) ·
+  return ok ( wrapping_add ( total, adjusted ) ) ·
+) ·

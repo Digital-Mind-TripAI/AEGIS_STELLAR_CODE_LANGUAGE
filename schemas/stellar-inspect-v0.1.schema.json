@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-inspect-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "view", "targetKind", "executionEnabled", "homeostasis", "document"],
+  "properties": {
+    "schema": { "const": "stellar.inspect/v0.1" },
+    "view": { "enum": ["overview", "tokens", "ast", "hir", "mir", "layout", "module-graph", "symbols", "relocations", "assembly", "machine-bytes", "effects", "hashes"] },
+    "targetKind": { "enum": ["source", "package", "native-build"] },
+    "executionEnabled": { "const": false },
+    "homeostasis": { "const": "NOT_EVALUATED" },
+    "document": {}
+  }
+}

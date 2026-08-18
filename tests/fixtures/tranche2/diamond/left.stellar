@@ -1,0 +1,4 @@
+module left ·
+import base / seed_value ·
+export left_value ·
+function left_value ( seed / i32 ) / Result ( i32 ) ( return ok ( try_value ( seed_value ( seed ) ) ) · ) ·

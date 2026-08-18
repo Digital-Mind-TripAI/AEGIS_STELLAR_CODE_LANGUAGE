@@ -1,0 +1,15 @@
+function classify ( value / i32 ) / Result ( i32 ) (
+  let result / i32 ( 0 ) ·
+  if less ( value, 0 ) ( set result ( sub ( 0, value ) ) · ) ~ otherwise ( set result ( value ) · ) ·
+  return ok ( result ) ·
+) ·
+function bounded_search ( limit / i32 ) / Result ( u64 ) (
+  let hits / u64 ( convert_u64 ( 0 ) ) ·
+  loop cursor / i32 ( from: 0, max: 8 ) (
+    if equal ( cursor, limit ) ( break · ) ~ otherwise ( set hits ( wrapping_add ( hits, convert_u64 ( 1 ) ) ) · continue · ) ·
+  ) ·
+  return ok ( hits ) ·
+) ·
+function status_path ( fail / bool ) / Result ( i32 ) (
+  if equal ( fail, true ) ( return err ( 12 ) · ) ~ otherwise ( return ok ( 1 ) · ) ·
+) ·

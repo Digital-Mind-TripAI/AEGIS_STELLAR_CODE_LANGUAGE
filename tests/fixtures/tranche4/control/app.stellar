@@ -1,0 +1,6 @@
+module app ·
+import control / bounded ·
+export main ·
+function main ( seed / i32, stop / i32 ) / Result ( i32 ) (
+  return ok ( try_value ( bounded ( seed, stop ) ) ) ·
+) ·

@@ -1,0 +1,15 @@
+{
+  "schema": "stellar.relic-interface/v0.1",
+  "name": "core.result",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "abi": "stellar-win64-v0.1",
+  "exports": [
+    {"name":"write_ok_i64","parameters":["i64","slice(i64,1)"],"result":"i32"},
+    {"name":"preserve_err_i32","parameters":["i32"],"result":"i32"},
+    {"name":"status_is_ok","parameters":["i32"],"result":"bool"}
+  ],
+  "effects": [],
+  "imports": []
+}

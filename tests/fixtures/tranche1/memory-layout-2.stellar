@@ -1,0 +1,10 @@
+struct Header ( code / u32, flags / array ( bool, 8 ) ) ·
+struct Coordinates ( x / f64, y / f64, z / f64 ) ·
+function first_word ( input / slice ( u64, 4 ) ) / Result ( u64 ) (
+  return ok ( index ( input, 0 ) ) ·
+) ·
+function packet_code ( ) / Result ( u32 ) (
+  let header / Header ·
+  set header.code ( wrapping_add ( convert_u32 ( 1 ), convert_u32 ( 2 ) ) ) ·
+  return ok ( header.code ) ·
+) ·

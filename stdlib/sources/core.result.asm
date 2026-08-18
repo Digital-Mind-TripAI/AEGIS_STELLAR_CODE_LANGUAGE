@@ -1,0 +1,33 @@
+option casemap:none
+.code
+
+PUBLIC stellar_v01_m636f72652e726573756c74_s77726974655f6f6b5f693634_h4379ad45caeea4ca
+stellar_v01_m636f72652e726573756c74_s77726974655f6f6b5f693634_h4379ad45caeea4ca PROC
+  test rdx, rdx
+  jz result_invalid
+  mov qword ptr [rdx], rcx
+  xor eax, eax
+  ret
+result_invalid:
+  mov eax, -20
+  ret
+stellar_v01_m636f72652e726573756c74_s77726974655f6f6b5f693634_h4379ad45caeea4ca ENDP
+
+PUBLIC stellar_v01_m636f72652e726573756c74_s70726573657276655f6572725f693332_h34313535035a793b
+stellar_v01_m636f72652e726573756c74_s70726573657276655f6572725f693332_h34313535035a793b PROC
+  mov eax, ecx
+  test eax, eax
+  js preserve_done
+  mov eax, -22
+preserve_done:
+  ret
+stellar_v01_m636f72652e726573756c74_s70726573657276655f6572725f693332_h34313535035a793b ENDP
+
+PUBLIC stellar_v01_m636f72652e726573756c74_s7374617475735f69735f6f6b_h3ca239786f256db6
+stellar_v01_m636f72652e726573756c74_s7374617475735f69735f6f6b_h3ca239786f256db6 PROC
+  xor eax, eax
+  test ecx, ecx
+  setz al
+  ret
+stellar_v01_m636f72652e726573756c74_s7374617475735f69735f6f6b_h3ca239786f256db6 ENDP
+END

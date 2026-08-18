@@ -1,0 +1,11 @@
+{
+  "schema": "stellar.package/v0.1",
+  "name": "native-control",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "entry": "app.stellar",
+  "modules": ["app.stellar", "control.stellar"],
+  "relics": [],
+  "capabilities": []
+}
