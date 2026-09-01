@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stellar.aegis.local/schemas/stellar-harmonic-signature-v0.1.schema.json",
+  "title": "Stellar Harmonic Signature v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "signatureId", "kind", "parameters", "effects", "capabilities", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.harmonic-signature/v0.1" },
+    "signatureId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "kind": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purity", "drift", "capture", "witness", "eq"],
+      "properties": {
+        "purity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "drift": { "type": "number", "minimum": 0, "maximum": 1 },
+        "capture": { "type": "number", "minimum": 0, "maximum": 1 },
+        "witness": { "type": "boolean" },
+        "eq": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "effects": { "const": [] },
+    "capabilities": { "const": [] },
+    "executionEnabled": { "const": false }
+  }
+}
