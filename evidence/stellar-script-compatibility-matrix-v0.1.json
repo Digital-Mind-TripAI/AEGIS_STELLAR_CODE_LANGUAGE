@@ -1,0 +1,217 @@
+{
+  "schema": "stellar-script-compatibility-matrix-v0.1",
+  "generatedAt": "2026-08-31",
+  "authorityInventory": "stellar-script-language-inventory-v0.1.json",
+  "conformancePackage": {
+    "path": "native/stellar/v0_1/vendor/stellar-conformance-v0.1-r3/stellar-conformance-v0.1/conformance.manifest.json",
+    "sha256": "8121D46024616CF51170E81CA30ED4FD3AB07D83772819B0AF233752D9F62EE7",
+    "bytes": 527
+  },
+  "structuralEvidence": {
+    "path": "native/stellar/v0_1/vendor/stellar-conformance-v0.1-r3/stellar-conformance-v0.1/evidence/stellar-v0.1-language-conformance-structure-report.json",
+    "sha256": "04EDDDC6299EA2D640931F752912BD3A7B7F5C16BDAB499BFA16BAFE2A7518BA",
+    "bytes": 293
+  },
+  "structuralStatus": "pass",
+  "nativeExecution": {
+    "executed": false,
+    "policy": "S7001 remains closed",
+    "source": "pinned conformance contract; Windows native run must be recorded separately"
+  },
+  "rows": [
+    {
+      "id": "positive/scalar-control.stellar",
+      "source": "cases/positive/tranche1/scalar-control.stellar",
+      "construct": "scalar types, explicit conversion, checked/wrapping arithmetic",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "positive/control-calls.stellar",
+      "source": "cases/positive/tranche1/control-calls.stellar",
+      "construct": "typed calls, bounded loop, break/continue",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "positive/control-variants.stellar",
+      "source": "cases/positive/tranche1/control-variants.stellar",
+      "construct": "branches, bounded loop, Result paths",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "positive/memory-layout.stellar",
+      "source": "cases/positive/tranche1/memory-layout.stellar",
+      "construct": "structs, arrays, slices, deterministic layout",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "positive/memory-layout-2.stellar",
+      "source": "cases/positive/tranche1/memory-layout-2.stellar",
+      "construct": "nested-independent structs and slices",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "positive/memory-layout-3.stellar",
+      "source": "cases/positive/tranche1/memory-layout-3.stellar",
+      "construct": "nested structs, arrays, bool, slices",
+      "expected": "accept",
+      "nativeResult": "accepted-by-v0.1-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "negative/implicit-narrowing.stellar",
+      "source": "cases/negative/source/implicit-narrowing.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S2004"
+    },
+    {
+      "id": "negative/recursion.stellar",
+      "source": "cases/negative/source/recursion.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S2008"
+    },
+    {
+      "id": "negative/unbounded-loop.stellar",
+      "source": "cases/negative/source/unbounded-loop.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S3002"
+    },
+    {
+      "id": "negative/invalid-array-layout.stellar",
+      "source": "cases/negative/source/invalid-array-layout.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S3001"
+    },
+    {
+      "id": "negative/array-bounds.stellar",
+      "source": "cases/negative/source/array-bounds.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S3004"
+    },
+    {
+      "id": "negative/break-outside-loop.stellar",
+      "source": "cases/negative/source/break-outside-loop.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S3003"
+    },
+    {
+      "id": "negative/undeclared-effect.stellar",
+      "source": "cases/negative/source/undeclared-effect.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S4003"
+    },
+    {
+      "id": "negative/missing-result.stellar",
+      "source": "cases/negative/source/missing-result.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S2006"
+    },
+    {
+      "id": "negative/branch-scope-leak.stellar",
+      "source": "cases/negative/source/branch-scope-leak.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S2003"
+    },
+    {
+      "id": "negative/literal-overflow.stellar",
+      "source": "cases/negative/source/literal-overflow.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S2007"
+    },
+    {
+      "id": "negative/malformed-number.stellar",
+      "source": "cases/negative/source/malformed-number.stellar",
+      "construct": "negative source rule",
+      "expected": "reject",
+      "nativeResult": "rejected-by-v0.1-conformance-contract",
+      "diagnostic": "S1002"
+    },
+    {
+      "id": "package/minimal",
+      "source": "cases/packages/minimal",
+      "construct": "minimal package manifest and element",
+      "expected": "accept-and-lock",
+      "nativeResult": "accepted-by-package-conformance-contract",
+      "diagnostic": null
+    },
+    {
+      "id": "execution/minimal",
+      "source": "cases/packages/minimal/main.stellar",
+      "construct": "native execution gate",
+      "expected": "reject",
+      "nativeResult": "S7001-closed-gate",
+      "diagnostic": "S7001"
+    }
+  ],
+  "gaps": [
+    {
+      "constructId": "element",
+      "requiredWork": "Relational executable object; no native v0.1 syntax or runtime mapping."
+    },
+    {
+      "constructId": "harmonic-signature",
+      "requiredWork": "No v0.1 type, metadata field, or evaluator exists."
+    },
+    {
+      "constructId": "orb",
+      "requiredWork": "Conceptually analogous to a function capsule, but not a native alias."
+    },
+    {
+      "constructId": "field-layer",
+      "requiredWork": "No v0.1 runtime environment contract."
+    },
+    {
+      "constructId": "harmonic-parameters",
+      "requiredWork": "Needs typed semantics and deterministic evaluation rules."
+    },
+    {
+      "constructId": "gap-pause",
+      "requiredWork": "Not represented by v0.1 loop, branch, or result constructs."
+    },
+    {
+      "constructId": "relational-flow",
+      "requiredWork": "v0.1 implements conventional bounded control flow; relational semantics remain open."
+    },
+    {
+      "constructId": "non-force-memory",
+      "requiredWork": "v0.1 has stack locals and caller-owned slices; continuity memory is not implemented."
+    }
+  ],
+  "summary": {
+    "positiveRows": 6,
+    "negativeRows": 11,
+    "packageRows": 1,
+    "executionRows": 1,
+    "unexplainedRows": 0,
+    "semanticGaps": 8
+  }
+}

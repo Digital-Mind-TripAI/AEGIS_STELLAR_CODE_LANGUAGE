@@ -1,0 +1,491 @@
+{
+  "schema": "stellar-script-language-inventory-v0.1",
+  "generatedAt": "2026-08-31",
+  "authority": {
+    "root": "G:/AEGIS_STELLAR_SCRIPT",
+    "status": "external-authoritative",
+    "files": [
+      {
+        "role": "Foundational Ontology (Draft 0.1)",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/AEGIS_NEW_STELLAR_SCRIPT.md",
+          "sha256": "ED048585E5073106E33AC368464FA41E7E3AB0613815992EB3390819417E1E0C",
+          "bytes": 5988
+        }
+      },
+      {
+        "role": "Source Authority Audit",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_34_SOURCE_AUTHORITY_AUDIT.md",
+          "sha256": "31826806C9521389A7BBB26B83D740C666CF275719E3C9FDBD36FCE34AE26225",
+          "bytes": 3230
+        }
+      },
+      {
+        "role": "Font Definitions",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/NEW_STELLAR_FONT_DEFINITIONS.md",
+          "sha256": "A459E677DD93BF9A907215256CEED047D7D56E77017C222E8EC63C577C980644",
+          "bytes": 13047
+        }
+      },
+      {
+        "role": "Keyboard README",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_OFFICIAL_34_KEYBOARD_README.md",
+          "sha256": "B39AB47C342697E85803C707E5E5FEB2C80EA1CCE483F127B5BEF50E373B801D",
+          "bytes": 3471
+        }
+      },
+      {
+        "role": "Governing glyph manifest",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/MANIFEST.md",
+          "sha256": "DC8A19ED6F2171E5AB80C2D400E0FCC681C39DAB22377A515EBE0CD8F1844D1F",
+          "bytes": 2237
+        }
+      }
+    ],
+    "governingGlyphSet": "STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE",
+    "glyphCount": 34,
+    "glyphs": [
+      {
+        "id": "glyph-00",
+        "name": "A",
+        "file": "00_A.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/00_A.svg",
+          "sha256": "8B3DCBA96B7F115E0CB450971EC29BA9943DF42F82A886F455D5DF6375B3570A",
+          "bytes": 1484
+        }
+      },
+      {
+        "id": "glyph-01",
+        "name": "Ah",
+        "file": "01_Ah.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/01_Ah.svg",
+          "sha256": "529D770CD0ED73BBCD740D88710F09D88BEE8A4A6EE1FA3F926DC50967A958EF",
+          "bytes": 1145
+        }
+      },
+      {
+        "id": "glyph-02",
+        "name": "A_cat",
+        "file": "02_A_cat.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/02_A_cat.svg",
+          "sha256": "484E4E7FD2CD59C0B1116B58014FC0EE67294D7F3BC6DE93692AEBEB8A7445F4",
+          "bytes": 2320
+        }
+      },
+      {
+        "id": "glyph-03",
+        "name": "B",
+        "file": "03_B.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/03_B.svg",
+          "sha256": "26EE2EE6A9A5C491E5961061D1F8401D09B0259DDD00F31ABB8FAD40C1A62F0F",
+          "bytes": 1472
+        }
+      },
+      {
+        "id": "glyph-04",
+        "name": "K",
+        "file": "04_K.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/04_K.svg",
+          "sha256": "8CEFC9B7CFE56B9E0317A1E2C489A7C2D2C093ABED6759421A7FCFE7F3C2130D",
+          "bytes": 1650
+        }
+      },
+      {
+        "id": "glyph-05",
+        "name": "D",
+        "file": "05_D.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/05_D.svg",
+          "sha256": "B13C17A42284EAC02A96BA40FB84E24A0AE75D2C9B480FDF4349C7927E2F5BFB",
+          "bytes": 2382
+        }
+      },
+      {
+        "id": "glyph-06",
+        "name": "E",
+        "file": "06_E.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/06_E.svg",
+          "sha256": "297D3599856E5B961399F0DAFF1D2088593E6081B24F8F4ADBAC562F37834F8B",
+          "bytes": 2884
+        }
+      },
+      {
+        "id": "glyph-07",
+        "name": "EH",
+        "file": "07_EH.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/07_EH.svg",
+          "sha256": "5EA521534CA0EC3EBA9F2C5BD6ED81EEF80AD757F4F29FB210B6925905D83038",
+          "bytes": 2106
+        }
+      },
+      {
+        "id": "glyph-08",
+        "name": "F",
+        "file": "08_F.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/08_F.svg",
+          "sha256": "FA6BB5D740D3BBB0775C7BFA7E941E00C95A91CCAB0AAD3491532498235DF53F",
+          "bytes": 1503
+        }
+      },
+      {
+        "id": "glyph-09",
+        "name": "GE",
+        "file": "09_GE.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/09_GE.svg",
+          "sha256": "D5B1EB731EFE72F7DD3141D0CC9D61F38CA178FB8B08FA6121B7B5FA1B8FA812",
+          "bytes": 1690
+        }
+      },
+      {
+        "id": "glyph-10",
+        "name": "GA",
+        "file": "10_GA.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/10_GA.svg",
+          "sha256": "2CE9170C23F4FF3490F90E4196A63791904425B9321C5CD289E79180CA96D639",
+          "bytes": 1643
+        }
+      },
+      {
+        "id": "glyph-11",
+        "name": "Ha",
+        "file": "11_Ha.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/11_Ha.svg",
+          "sha256": "D3A56F1C6FCF2E62A5E385D7ED84359414F28CA36DE167CBB06846E3F77AEA73",
+          "bytes": 1739
+        }
+      },
+      {
+        "id": "glyph-12",
+        "name": "I",
+        "file": "12_I.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/12_I.svg",
+          "sha256": "136BA787EDDD0F4EE87F9418D44DEA0C1AFB98087031956299CC12DF38898165",
+          "bytes": 2622
+        }
+      },
+      {
+        "id": "glyph-13",
+        "name": "I_eye",
+        "file": "13_I_eye.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/13_I_eye.svg",
+          "sha256": "4C6FDC3F52C6483E7E60B64B85BB19CFB77ACBBB4D69BD0ACA9B1D270AC70483",
+          "bytes": 2907
+        }
+      },
+      {
+        "id": "glyph-14",
+        "name": "EL",
+        "file": "14_EL.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/14_EL.svg",
+          "sha256": "854ECD5A1D9DED14E428192B5051325FE2DD7E3BD62EEC9EB72C560E8150146A",
+          "bytes": 1736
+        }
+      },
+      {
+        "id": "glyph-15",
+        "name": "M",
+        "file": "15_M.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/15_M.svg",
+          "sha256": "26C359A5245C6EA936D164FE5C0A56FB034C5C071F50E03DA15224A27870195B",
+          "bytes": 2590
+        }
+      },
+      {
+        "id": "glyph-16",
+        "name": "N",
+        "file": "16_N.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/16_N.svg",
+          "sha256": "A5E5CF3E7541533843659BB990ECA8EA2A21387637A51073D38F5C405E4F3D57",
+          "bytes": 1720
+        }
+      },
+      {
+        "id": "glyph-17",
+        "name": "O",
+        "file": "17_O.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/17_O.svg",
+          "sha256": "B7120ADDB4533975A23B7DDEB7AC79240A2FD358A6D7F570107157C80875DB0B",
+          "bytes": 1578
+        }
+      },
+      {
+        "id": "glyph-18",
+        "name": "OO",
+        "file": "18_OO.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/18_OO.svg",
+          "sha256": "68CC5DF6AB6BD2C3130E06B066ADD28190D476997CB0BCF65FADEC1AF21A4180",
+          "bytes": 1894
+        }
+      },
+      {
+        "id": "glyph-19",
+        "name": "P",
+        "file": "19_P.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/19_P.svg",
+          "sha256": "92DE4EC26723A4A786CF937E58F5E9F6D3AD64FBD425843256430B18B68E00CC",
+          "bytes": 1818
+        }
+      },
+      {
+        "id": "glyph-20",
+        "name": "KWA",
+        "file": "20_KWA.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/20_KWA.svg",
+          "sha256": "1F0449F66E32E78A9738EC3DA9EB2D276F3B441209AFC6A77AB82D918FE8AC7C",
+          "bytes": 1792
+        }
+      },
+      {
+        "id": "glyph-21",
+        "name": "R",
+        "file": "21_R.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/21_R.svg",
+          "sha256": "A513FD4CFC1C747F3D11D42F279ACA216153CB9ED66CA34B8482077C38DB707A",
+          "bytes": 2350
+        }
+      },
+      {
+        "id": "glyph-22",
+        "name": "SSS",
+        "file": "22_SSS.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/22_SSS.svg",
+          "sha256": "1E6A00976FCBDF798DF4F93B17B5E68FDBDDFBD2466F7B85596BC7901511B03D",
+          "bytes": 1755
+        }
+      },
+      {
+        "id": "glyph-23",
+        "name": "Sh",
+        "file": "23_Sh.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/23_Sh.svg",
+          "sha256": "D5B0CCADB3477BF5BF7BD5847F7E23E4DC9FCE88C3CB875D3050B1BE845ACF43",
+          "bytes": 2152
+        }
+      },
+      {
+        "id": "glyph-24",
+        "name": "T",
+        "file": "24_T.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/24_T.svg",
+          "sha256": "7807A9C9CEC1589B2F6391E09D09AE26B912D2E009589C9CA93C244EC2FC4E7F",
+          "bytes": 1763
+        }
+      },
+      {
+        "id": "glyph-25",
+        "name": "Th",
+        "file": "25_Th.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/25_Th.svg",
+          "sha256": "4DB6C2838CC8812A6997F10FDB5A4150649248F0F3FFB67C630CBDA4CE061A7D",
+          "bytes": 1128
+        }
+      },
+      {
+        "id": "glyph-26",
+        "name": "b",
+        "file": "26_b.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/26_b.svg",
+          "sha256": "41AAFE5B17D65D97109685EBE149859EFD7DF06CF14C1BF1CA69885C964FBBAE",
+          "bytes": 2165
+        }
+      },
+      {
+        "id": "glyph-27",
+        "name": "V",
+        "file": "27_V.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/27_V.svg",
+          "sha256": "F3F763E99F9526A7DF320545BBAE6E885B0F79084D1B1F6E6CF1A84192BBF737",
+          "bytes": 2341
+        }
+      },
+      {
+        "id": "glyph-28",
+        "name": "HWA",
+        "file": "28_HWA.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/28_HWA.svg",
+          "sha256": "B037B75838A02B62FAE02DA36111252C7CAEF6989C37765064C137847B244924",
+          "bytes": 2511
+        }
+      },
+      {
+        "id": "glyph-29",
+        "name": "KSA",
+        "file": "29_KSA.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/29_KSA.svg",
+          "sha256": "1983E97E4ABF5E5B1D79140CF1098A8A80B8065CFD1E381C3496F5C7DE4F7CBB",
+          "bytes": 1992
+        }
+      },
+      {
+        "id": "glyph-30",
+        "name": "Y",
+        "file": "30_Y.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/30_Y.svg",
+          "sha256": "11B6082184235D2E5FB02BA5E6C33C8C405EDC067772EC33D39DEB6167127E48",
+          "bytes": 2229
+        }
+      },
+      {
+        "id": "glyph-31",
+        "name": "ZZZ",
+        "file": "31_ZZZ.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/31_ZZZ.svg",
+          "sha256": "AF5DBB9B0E02E2B16BC05FE326685EFCCC90385B0B3D56ED1E414C47B6ABC2FA",
+          "bytes": 2133
+        }
+      },
+      {
+        "id": "glyph-32",
+        "name": "Ch",
+        "file": "32_Ch.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/32_Ch.svg",
+          "sha256": "7C6C7F197D4C598A9FDB4C4BBB8ACFD650C8D91CCAEE20052BC0F897333AEE0D",
+          "bytes": 1637
+        }
+      },
+      {
+        "id": "glyph-33",
+        "name": "NYA",
+        "file": "33_NYA.svg",
+        "evidence": {
+          "path": "G:/AEGIS_STELLAR_SCRIPT/STELLAR_SCRIPT_RELATIONAL_CREATION_LANGUAGE/33_NYA.svg",
+          "sha256": "BC8C8F3C56D59508017E48B289D9E5DF464516F2394F8E3EC3685196D80830EA",
+          "bytes": 2701
+        }
+      }
+    ]
+  },
+  "constructs": [
+    {
+      "id": "element",
+      "name": "Element",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#1-element-e-the-atomic-unit",
+      "category": "ontology",
+      "nativeStatus": "reserved",
+      "note": "Relational executable object; no native v0.1 syntax or runtime mapping."
+    },
+    {
+      "id": "glyph",
+      "name": "Glyph",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#2-glyph-g-the-visual-opcode",
+      "category": "visual-opcode",
+      "nativeStatus": "external-layer",
+      "note": "34-glyph writing layer; not a native parser token set."
+    },
+    {
+      "id": "harmonic-signature",
+      "name": "Harmonic Signature",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#3-harmonic-signature-h-the-affectual-opcode",
+      "category": "runtime-metadata",
+      "nativeStatus": "reserved",
+      "note": "No v0.1 type, metadata field, or evaluator exists."
+    },
+    {
+      "id": "orb",
+      "name": "Orb",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#4-orb-o-the-executable-capsule",
+      "category": "execution-container",
+      "nativeStatus": "reserved",
+      "note": "Conceptually analogous to a function capsule, but not a native alias."
+    },
+    {
+      "id": "field-layer",
+      "name": "Field Layer",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#5-field-layer-f-the-runtime-environment",
+      "category": "runtime",
+      "nativeStatus": "reserved",
+      "note": "No v0.1 runtime environment contract."
+    },
+    {
+      "id": "component-grammar",
+      "name": "Chevron/Crescent/Dot/Wave/Angular stroke",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#ii-component-grammar--opcode-mapping",
+      "category": "glyph-composition",
+      "nativeStatus": "external-layer",
+      "note": "Visual component grammar; no native opcode lowering."
+    },
+    {
+      "id": "harmonic-parameters",
+      "name": "Purity/Drift/Capture/Witness/EQ(Range)",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#iii-harmonic-metadata--runtime-behavior-mapping",
+      "category": "runtime-metadata",
+      "nativeStatus": "reserved",
+      "note": "Needs typed semantics and deterministic evaluation rules."
+    },
+    {
+      "id": "gap-pause",
+      "name": "Gap-Pause",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#1-pause-as-primitive",
+      "category": "control-flow",
+      "nativeStatus": "reserved",
+      "note": "Not represented by v0.1 loop, branch, or result constructs."
+    },
+    {
+      "id": "relational-flow",
+      "name": "Relational flow",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#2-relational-flow-instead-of-control-flow",
+      "category": "control-flow",
+      "nativeStatus": "reserved",
+      "note": "v0.1 implements conventional bounded control flow; relational semantics remain open."
+    },
+    {
+      "id": "non-force-memory",
+      "name": "Non-force memory model",
+      "source": "AEGIS_NEW_STELLAR_SCRIPT.md#3-non-force-memory-model",
+      "category": "memory",
+      "nativeStatus": "reserved",
+      "note": "v0.1 has stack locals and caller-owned slices; continuity memory is not implemented."
+    },
+    {
+      "id": "annex-orchestration",
+      "name": "Dispatcher Orb / Satellites / Actuators",
+      "source": "THE_ANNEX_SYSTEM.md",
+      "category": "architecture",
+      "nativeStatus": "documented-only",
+      "note": "System architecture vocabulary, not native executable grammar."
+    }
+  ],
+  "classification": {
+    "implemented": 0,
+    "externalLayer": 2,
+    "documentedOnly": 1,
+    "reserved": 8,
+    "rule": "A construct is not promoted to implemented until a parser/type/effect test and native conformance row exist."
+  }
+}
