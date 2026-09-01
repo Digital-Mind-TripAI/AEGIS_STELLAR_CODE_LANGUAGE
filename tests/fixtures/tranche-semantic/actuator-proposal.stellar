@@ -1,0 +1,4 @@
+totem scout / Satellite ( parent: mission, shortfall: missing-approval ) ·
+totem mission / Orb ( child: scout ) ·
+actuator repair / RepairActuator ( target: dependency-approval, totem: scout, shortfall: missing-approval, authorization: required ) ·
+function main ( ) / Result ( i32 ) ( return err ( 0 ) · ) ·

@@ -1,0 +1,3 @@
+totem scout / Satellite ( shortfall: missing-approval ) ·
+actuator repair / RepairActuator ( target: dependency-approval, totem: absent, shortfall: missing-approval, authorization: required ) ·
+function main ( ) / Result ( i32 ) ( return err ( 0 ) · ) ·
