@@ -1,0 +1,4 @@
+element bridge / SignalBridge ( ) ·
+orb signal-orb / Signal ( bridge ) ·
+field runtime / Observation ( orb: signal-orb, target: workspace, state: running ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 0 ) · ) ·
