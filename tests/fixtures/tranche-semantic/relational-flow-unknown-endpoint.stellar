@@ -1,0 +1,3 @@
+element source / Signal ( ) ·
+flow unknown-endpoint / Relational ( node: source / element, edge: supports-edge / supports ( from: source, to: missing, order: 1 ), state: declared ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 0 ) · ) ·

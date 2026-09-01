@@ -1,0 +1,4 @@
+element source / Signal ( ) ·
+element target / Signal ( ) ·
+flow signal-path / Relational ( node: source / element, node: target / element, edge: supports-edge / supports ( from: source, to: target, order: 1, condition: eq >= 0.8, condition: witness == true ), state: declared, shortfall: pending-witness, gap_pause: awaiting-witness ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 0 ) · ) ·

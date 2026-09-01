@@ -1,0 +1,4 @@
+totem mission / Orb ( child: scout ) ·
+totem scout / Satellite ( parent: other ) ·
+totem other / Orb ( parent: none ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 1 ) · ) ·

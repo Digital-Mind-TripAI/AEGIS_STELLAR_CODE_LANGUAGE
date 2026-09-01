@@ -1,0 +1,4 @@
+element bridge / SignalBridge ( gain: 1, label: "seed" ) ·
+function main ( ) / Result ( i32 ) (
+  return ok ( 0 ) ·
+) ·

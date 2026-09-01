@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-relational-flow-native-v0.1.schema.json",
+  "title": "Stellar Native Relational Flow Source Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "flowId", "flowKind", "entries", "state", "shortfallIds", "gapPauseIds", "effects", "capabilities", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.relational-flow-native/v0.1" },
+    "flowId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "flowKind": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "entries": { "type": "array", "minItems": 2, "maxItems": 384, "items": { "oneOf": [
+      { "type": "object", "additionalProperties": false, "required": ["kind", "nodeId", "type"], "properties": { "kind": { "const": "node" }, "nodeId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "type": { "enum": ["element", "orb", "field-layer", "tether"] } } },
+      { "type": "object", "additionalProperties": false, "required": ["kind", "edgeId", "relation", "from", "to", "order", "conditions"], "properties": { "kind": { "const": "edge" }, "edgeId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "relation": { "enum": ["supports", "observes", "contains", "tethers"] }, "from": { "type": "string" }, "to": { "type": "string" }, "order": { "type": "integer", "minimum": 1 }, "conditions": { "type": "array", "maxItems": 8, "items": { "type": "object", "additionalProperties": false, "required": ["metric", "operator", "value"], "properties": { "metric": { "enum": ["eq", "drift", "capture", "witness"] }, "operator": { "enum": [">=", "<=", "=="] }, "value": {} } } } } }
+    ] } },
+    "state": { "enum": ["declared", "paused", "closed"] },
+    "shortfallIds": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" } },
+    "gapPauseIds": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" } },
+    "effects": { "const": [] }, "capabilities": { "const": [] }, "executionEnabled": { "const": false }
+  }
+}

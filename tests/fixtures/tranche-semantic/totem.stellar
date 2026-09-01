@@ -1,0 +1,4 @@
+totem mission / Orb ( parent: none, child: scout, shortfall: missing-approval ) ·
+totem scout / Satellite ( parent: mission, child: repair, shortfall: missing-approval ) ·
+totem repair / Actuator ( parent: scout ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 1 ) · ) ·

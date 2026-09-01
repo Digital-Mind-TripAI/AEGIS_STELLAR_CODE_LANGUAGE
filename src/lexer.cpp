@@ -10,6 +10,10 @@ bool lex(const std::string& file, const std::string& source, std::vector<Token>&
     const unsigned char c = static_cast<unsigned char>(source[p.offset]);
     if (std::isspace(c)) { advance(); continue; }
     const Point start = p;
+    if (p.offset+1 < source.size()) {
+      const std::string op = source.substr(p.offset, 2);
+      if (op == ">=" || op == "<=" || op == "==") { advance(2); if(!emit(TokenKind::operator_token,op,start)) break; continue; }
+    }
     if (p.offset+1 < source.size() && static_cast<unsigned char>(source[p.offset])==0xc2 && static_cast<unsigned char>(source[p.offset+1])==0xb7) { p.offset+=2;++p.column; if(!emit(TokenKind::dot,"·",start)) break; continue; }
     if (p.offset+2 < source.size() && static_cast<unsigned char>(source[p.offset])==0xe2 && static_cast<unsigned char>(source[p.offset+1])==0x80 && static_cast<unsigned char>(source[p.offset+2])==0xba) { p.offset+=3;++p.column; if(!emit(TokenKind::chevron,"›",start)) break; continue; }
     TokenKind kind{}; std::string value; bool punctuation=true;

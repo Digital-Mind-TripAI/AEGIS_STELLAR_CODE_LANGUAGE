@@ -1,0 +1,4 @@
+orb dispatcher / Capsule ( ) ·
+function main ( ) / Result ( i32 ) (
+  return ok ( 0 ) ·
+) ·

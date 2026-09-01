@@ -1,0 +1,4 @@
+element source / Signal ( ) ·
+element target / Signal ( ) ·
+flow cyclic / Relational ( node: source / element, node: target / element, edge: first / supports ( from: source, to: target, order: 1 ), edge: second / observes ( from: target, to: source, order: 2 ), state: declared ) ·
+function main ( ) / Result ( i32 ) ( return ok ( 0 ) · ) ·
