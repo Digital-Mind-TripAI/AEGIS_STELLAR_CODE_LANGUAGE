@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-shortfall-continuity-v0.1.schema.json",
+  "title": "Stellar Shortfall Continuity Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "recordId", "missionId", "sequence", "state", "source", "summary", "unresolvedShortfalls", "approvals", "artifacts", "provenance", "previousIntegrityHash", "integrityHash"],
+  "properties": {
+    "schema": { "const": "stellar.shortfall-continuity/v0.1" },
+    "recordId": { "$ref": "#/$defs/id" }, "missionId": { "$ref": "#/$defs/id" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "state": { "enum": ["idle", "assigned", "working", "reporting", "shortfall", "awaiting", "complete"] },
+    "source": { "type": "object", "additionalProperties": false, "required": ["layer", "id"], "properties": { "layer": { "enum": ["actuator", "satellite", "dispatcher-orb"] }, "id": { "$ref": "#/$defs/id" } } },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "unresolvedShortfalls": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["id", "description", "blocking"], "properties": { "id": { "$ref": "#/$defs/id" }, "description": { "$ref": "#/$defs/text" }, "blocking": { "type": "boolean" } } } },
+    "approvals": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["id", "status", "scope"], "properties": { "id": { "$ref": "#/$defs/id" }, "status": { "enum": ["pending", "approved", "refused"] }, "scope": { "type": "string", "minLength": 1, "maxLength": 1024 } } } },
+    "artifacts": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/evidence" } },
+    "provenance": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/evidence" } },
+    "previousIntegrityHash": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/sha256" }] },
+    "integrityHash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": { "id": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "text": { "type": "string", "minLength": 1, "maxLength": 4096 }, "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }, "evidence": { "type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": { "path": { "type": "string", "minLength": 1, "maxLength": 1024 }, "sha256": { "$ref": "#/$defs/sha256" } } } }
+}
