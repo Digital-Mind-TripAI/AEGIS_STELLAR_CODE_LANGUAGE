@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-field-layer-v0.1.schema.json",
+  "title": "Stellar Field Layer Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "fieldId", "state", "parentOrbId", "harmonicSignatureId", "snapshot", "observations", "eqRange", "updatePolicy", "driftPolicy", "capturePolicy", "allowedTransitions", "legalContext", "effects", "capabilities", "persistence", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.field-layer/v0.1" },
+    "fieldId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "state": { "enum": ["declared", "active", "paused", "stale", "closed"] },
+    "parentOrbId": { "type": ["string", "null"], "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "harmonicSignatureId": { "type": ["string", "null"], "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "snapshot": { "type": "object", "additionalProperties": false, "required": ["sequence", "inputHash"], "properties": { "sequence": { "type": "integer", "minimum": 1 }, "inputHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" } } },
+    "observations": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["observationId", "source", "type", "value"], "properties": { "observationId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "source": { "type": "string", "minLength": 1, "maxLength": 1024 }, "type": { "enum": ["boolean", "number", "text", "identifier"] }, "value": {} } } },
+    "eqRange": { "type": "object", "additionalProperties": false, "required": ["minimum", "maximum", "value"], "properties": { "minimum": { "type": "number" }, "maximum": { "type": "number" }, "value": { "type": "number" } } },
+    "updatePolicy": { "const": "snapshot-bound" },
+    "driftPolicy": { "const": "harmonic-metadata-only" },
+    "capturePolicy": { "const": "harmonic-metadata-only" },
+    "allowedTransitions": { "const": ["declared->active", "active->paused", "paused->active", "active->stale", "stale->closed"] },
+    "legalContext": { "const": "orchestration-boundary" },
+    "effects": { "const": [] },
+    "capabilities": { "const": [] },
+    "persistence": { "const": "append-only-continuity-record" },
+    "executionEnabled": { "const": false }
+  }
+}
