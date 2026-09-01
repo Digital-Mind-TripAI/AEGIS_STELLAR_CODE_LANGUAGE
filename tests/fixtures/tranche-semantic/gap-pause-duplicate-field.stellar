@@ -1,0 +1,4 @@
+gap-pause bounded-gap / awaiting-approval ( timeout_ms: 1000, resume: manual, resume: authorized, abort: explicit ) ·
+function main ( ) / Result ( i32 ) (
+  return ok ( 0 ) ·
+) ·
