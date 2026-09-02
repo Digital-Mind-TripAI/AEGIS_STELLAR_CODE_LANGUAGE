@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-native-build-evidence-v0.1.schema.json",
+  "type": "object",
+  "required": ["schema", "target", "profile", "abi", "executionEnabled", "loaded", "ran", "homeostasis", "modules", "linked", "consoleWrite", "lockIntegrity"],
+  "properties": {
+    "schema": { "const": "stellar.native-build-evidence/v0.1" },
+    "target": { "const": "windows-x86_64-msvc" },
+    "profile": { "const": "stellar-lab-v0" },
+    "abi": { "const": "stellar-win64-v0.1" },
+    "executionEnabled": { "const": false },
+    "loaded": { "const": false },
+    "ran": { "const": false },
+    "homeostasis": { "const": "NOT_EVALUATED" },
+    "modules": { "type": "object", "minProperties": 1 },
+    "linked": { "type": "object" },
+    "consoleWrite": { "type": "object" },
+    "lockIntegrity": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

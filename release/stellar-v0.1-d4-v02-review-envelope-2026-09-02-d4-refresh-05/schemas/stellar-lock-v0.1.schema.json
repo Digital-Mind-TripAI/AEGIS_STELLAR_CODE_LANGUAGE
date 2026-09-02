@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-lock-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "packageIntegrity", "moduleHashes"],
+  "properties": {
+    "schema": { "const": "stellar.lock/v0.1" },
+    "packageIntegrity": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "moduleHashes": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" } }
+  }
+}

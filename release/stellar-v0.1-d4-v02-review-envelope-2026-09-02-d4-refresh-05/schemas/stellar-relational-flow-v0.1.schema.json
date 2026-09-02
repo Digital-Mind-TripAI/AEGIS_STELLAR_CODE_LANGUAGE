@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-relational-flow-v0.1.schema.json",
+  "title": "Stellar Relational Flow Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "flowId", "state", "nodes", "edges", "shortfallIds", "gapPauseIds", "allowedTransitions", "ordering", "cyclePolicy", "legalContext", "effects", "capabilities", "persistence", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.relational-flow/v0.1" },
+    "flowId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "state": { "enum": ["declared", "paused", "closed"] },
+    "nodes": { "type": "array", "minItems": 2, "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["nodeId", "type"], "properties": { "nodeId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "type": { "enum": ["element", "orb", "field-layer", "tether"] } } } },
+    "edges": { "type": "array", "minItems": 1, "maxItems": 256, "items": { "type": "object", "additionalProperties": false, "required": ["edgeId", "from", "to", "relation", "order", "conditions"], "properties": { "edgeId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" }, "from": { "type": "string" }, "to": { "type": "string" }, "relation": { "enum": ["supports", "observes", "contains", "tethers"] }, "order": { "type": "integer", "minimum": 1 }, "conditions": { "type": "array", "maxItems": 8, "items": { "type": "object", "additionalProperties": false, "required": ["metric", "operator", "value"], "properties": { "metric": { "enum": ["eq", "drift", "capture", "witness"] }, "operator": { "enum": [">=", "<=", "=="] }, "value": {} } } } } } },
+    "shortfallIds": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" } },
+    "gapPauseIds": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" } },
+    "allowedTransitions": { "const": ["declared->paused", "paused->declared", "paused->closed", "declared->closed"] },
+    "ordering": { "const": "edge-order-ascending" },
+    "cyclePolicy": { "const": "acyclic-v0.1" },
+    "legalContext": { "const": "orchestration-boundary" },
+    "effects": { "const": [] }, "capabilities": { "const": [] },
+    "persistence": { "const": "append-only-continuity-record" }, "executionEnabled": { "const": false }
+  }
+}

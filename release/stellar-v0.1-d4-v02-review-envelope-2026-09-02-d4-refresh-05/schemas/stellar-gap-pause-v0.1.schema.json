@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-gap-pause-v0.1.schema.json",
+  "title": "Stellar Gap-Pause Design Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "pauseId", "reason", "timeoutMs", "resume", "abort", "initialState", "allowedTransitions", "legalContext", "effects", "capabilities", "persistence", "executionEnabled"],
+  "properties": {
+    "schema": { "const": "stellar.gap-pause/v0.1" },
+    "pauseId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 1024 },
+    "timeoutMs": { "type": "integer", "minimum": 1, "maximum": 86400000 },
+    "resume": { "enum": ["authorized", "manual"] },
+    "abort": { "enum": ["explicit", "timeout"] },
+    "initialState": { "const": "active" },
+    "allowedTransitions": { "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": { "enum": ["active->paused", "paused->resumed", "paused->aborted", "paused->expired"] } },
+    "legalContext": { "const": "orchestration-boundary" },
+    "effects": { "const": ["pause-control"] },
+    "capabilities": { "const": [] },
+    "persistence": { "const": "append-only-continuity-record" },
+    "executionEnabled": { "const": false }
+  }
+}

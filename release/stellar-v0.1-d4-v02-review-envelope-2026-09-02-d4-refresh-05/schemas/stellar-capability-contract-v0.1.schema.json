@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-capability-contract-v0.1.schema.json",
+  "title": "Stellar Capability Contract Envelope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "protected", "payload", "signature"],
+  "properties": {
+    "schema": { "const": "stellar.capability-contract-envelope/v0.1" },
+    "protected": { "$ref": "#/$defs/base64url" },
+    "payload": { "$ref": "#/$defs/base64url" },
+    "signature": { "type": "string", "pattern": "^[A-Za-z0-9_-]{86}$" }
+  },
+  "$defs": {
+    "base64url": { "type": "string", "minLength": 2, "maxLength": 43691, "pattern": "^[A-Za-z0-9_-]+$" },
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

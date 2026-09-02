@@ -1,0 +1,8 @@
+[CmdletBinding()]
+param([Parameter(Mandatory=$true)][string]$OutputDirectory)
+$ErrorActionPreference='Stop';New-Item -ItemType Directory -Path $OutputDirectory -Force|Out-Null
+$vswhere="${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe";if(-not(Test-Path $vswhere)){throw 'T7C_MSVC_NOT_FOUND'}
+$install=& $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath;$devcmd=Join-Path $install 'Common7\Tools\VsDevCmd.bat';if(-not(Test-Path $devcmd)){throw 'T7C_MSVC_NOT_FOUND'}
+$source=Resolve-Path (Join-Path $PSScriptRoot '..\src');$objectDirectory=Join-Path $OutputDirectory 'obj';New-Item -ItemType Directory -Path $objectDirectory -Force|Out-Null
+$shared=@('service_common.cpp','service_runtime.cpp','canonical_json.cpp','custodian_gateway_policy.cpp','custodian_request_signer_registry.cpp','protected_installed_artifact.cpp','key_custody.cpp','durable_state.cpp','scm_readiness.cpp','gateway_pipe_client.cpp','startup_gate_sequence.cpp')|ForEach-Object{'"'+(Join-Path $source $_)+'"'}
+foreach($item in @(@('custodian_service.cpp','AegisStellarCustodian.exe'),@('execution_broker_service.cpp','AegisStellarExecutionBroker.exe'))){$src=Join-Path $source $item[0];$out=Join-Path $OutputDirectory $item[1];$command='"'+$devcmd+'" -arch=x64 -host_arch=x64 >nul && cl.exe /nologo /std:c++20 /W4 /WX /EHsc /guard:cf /DUNICODE /D_UNICODE /Brepro /Fo"'+$objectDirectory+'\\" '+($shared -join ' ')+' "'+$src+'" /link /OUT:"'+$out+'" /DYNAMICBASE /NXCOMPAT /HIGHENTROPYVA /CETCOMPAT';cmd.exe /d /s /c $command;if($LASTEXITCODE){throw "T7C_BUILD_FAILED: $($item[0])"}}

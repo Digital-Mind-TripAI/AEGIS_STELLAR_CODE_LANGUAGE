@@ -1,0 +1,1 @@
+{"fixedProbes":["token-handles","workspace-read","workspace-write","user-data-read","user-data-write","registry","shared-temp","network","loopback","device","gui","child-process","child-breakaway","crash","infinite-loop","memory-pressure","output-flood"]}

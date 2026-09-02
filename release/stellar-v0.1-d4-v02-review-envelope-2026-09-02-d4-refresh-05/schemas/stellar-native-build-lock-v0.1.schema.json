@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-native-build-lock-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "integrity", "packageIntegrity", "dependencyLockIntegrity", "nativePlanHash", "stdlibLockIntegrity", "toolchainHash", "target", "profile", "abi", "modules", "linkedEvidenceHash", "reproducibleLinkedHash"],
+  "properties": {
+    "schema": { "const": "stellar.native-build-lock/v0.1" },
+    "integrity": { "$ref": "#/$defs/hash" },
+    "packageIntegrity": { "$ref": "#/$defs/hash" },
+    "dependencyLockIntegrity": { "$ref": "#/$defs/hash" },
+    "nativePlanHash": { "$ref": "#/$defs/hash" },
+    "stdlibLockIntegrity": { "$ref": "#/$defs/hash" },
+    "toolchainHash": { "$ref": "#/$defs/hash" },
+    "target": { "const": "windows-x86_64-msvc" },
+    "profile": { "const": "stellar-lab-v0" },
+    "abi": { "const": "stellar-win64-v0.1" },
+    "modules": { "type": "object", "minProperties": 1 },
+    "linkedEvidenceHash": { "$ref": "#/$defs/hash" },
+    "reproducibleLinkedHash": { "oneOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" } }
+}

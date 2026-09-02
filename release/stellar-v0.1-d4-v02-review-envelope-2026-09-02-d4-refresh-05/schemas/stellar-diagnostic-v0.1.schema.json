@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-diagnostic-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code", "severity", "message", "file", "span", "primarySpan", "secondarySpans", "stage", "help"],
+  "properties": {
+    "code": { "type": "string", "pattern": "^S[0-7][0-9]{3}$" },
+    "severity": { "enum": ["error", "warning", "note"] },
+    "message": { "type": "string" },
+    "file": { "type": "string" },
+    "span": { "type": "object" },
+    "primarySpan": { "type": "object" },
+    "secondarySpans": { "type": "array" },
+    "stage": { "enum": ["source", "lex-parse", "type", "layout-control", "module-relic", "package-integrity", "lower-link", "developer-tooling-security", "unknown"] },
+    "help": { "type": "string" }
+  }
+}

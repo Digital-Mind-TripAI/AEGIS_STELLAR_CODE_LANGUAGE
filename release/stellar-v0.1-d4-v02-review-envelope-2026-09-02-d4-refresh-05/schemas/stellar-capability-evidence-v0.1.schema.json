@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-capability-evidence-v0.1.schema.json",
+  "title": "Stellar Capability Evidence Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sequence", "eventId", "contractId", "state", "observedAt", "requestHash", "actorSubject", "receipt", "previousIntegrityHash", "integrityHash"],
+  "properties": {
+    "sequence": { "type": "integer", "minimum": 1 },
+    "eventId": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "contractId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "state": { "enum": ["ISSUED", "RESERVED", "CONSUMED", "REFUSED"] },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "requestHash": { "$ref": "#/$defs/sha256" },
+    "actorSubject": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "receipt": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/receipt" }] },
+    "previousIntegrityHash": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/sha256" }] },
+    "integrityHash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receiptHash", "status"],
+      "properties": {
+        "receiptHash": { "$ref": "#/$defs/sha256" },
+        "status": { "enum": ["completed", "refused"] },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 256 }
+      }
+    }
+  }
+}

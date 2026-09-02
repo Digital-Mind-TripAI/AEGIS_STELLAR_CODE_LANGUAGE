@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-stdlib-lock-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "integrity", "manifestHash", "target", "profile", "abi", "toolchainHash", "relics", "consoleDescriptorHash", "consoleSourceHash"],
+  "properties": {
+    "schema": { "const": "stellar.stdlib-lock/v0.1" },
+    "integrity": { "$ref": "#/$defs/hash" },
+    "manifestHash": { "$ref": "#/$defs/hash" },
+    "target": { "const": "windows-x86_64-msvc" },
+    "profile": { "const": "stellar-lab-v0" },
+    "abi": { "const": "stellar-win64-v0.1" },
+    "toolchainHash": { "$ref": "#/$defs/hash" },
+    "relics": { "type": "object", "minProperties": 3, "maxProperties": 3 },
+    "consoleDescriptorHash": { "$ref": "#/$defs/hash" },
+    "consoleSourceHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

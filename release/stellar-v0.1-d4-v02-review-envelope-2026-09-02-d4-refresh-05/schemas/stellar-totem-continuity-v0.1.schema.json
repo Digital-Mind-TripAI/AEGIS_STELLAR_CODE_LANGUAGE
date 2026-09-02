@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stellar-totem-continuity-v0.1.schema.json",
+  "title": "Passive Stellar Totem continuity record",
+  "description": "Communication and illumination only. A Totem never authorizes, dispatches, repairs, mutates, or executes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "totemId", "kind", "state", "parentTotemId", "childTotemIds", "shortfallIds", "target", "summary", "observations", "recommendations", "artifacts", "provenance", "previousIntegrityHash", "integrityHash"],
+  "properties": {
+    "schema": { "const": "stellar.totem-continuity/v0.1" },
+    "totemId": { "$ref": "#/$defs/id" },
+    "kind": { "enum": ["orb", "satellite", "actuator", "record"] },
+    "state": { "enum": ["descriptive", "shortfall", "complete"] },
+    "parentTotemId": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/id" }] },
+    "childTotemIds": { "$ref": "#/$defs/ids" },
+    "shortfallIds": { "$ref": "#/$defs/ids" },
+    "target": { "$ref": "#/$defs/text" },
+    "summary": { "$ref": "#/$defs/text" },
+    "observations": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/text" } },
+    "recommendations": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/text" } },
+    "artifacts": { "$ref": "#/$defs/evidence" },
+    "provenance": { "$ref": "#/$defs/provenance" },
+    "previousIntegrityHash": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/hash" }] },
+    "integrityHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "text": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "ids": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "evidence": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": { "path": { "$ref": "#/$defs/text" }, "sha256": { "$ref": "#/$defs/hash" } } } },
+    "provenance": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["source", "sha256"], "properties": { "source": { "$ref": "#/$defs/text" }, "sha256": { "$ref": "#/$defs/hash" } } } }
+  }
+}

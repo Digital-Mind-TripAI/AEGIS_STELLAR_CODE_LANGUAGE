@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stellar-non-force-continuity-memory-v0.1.schema.json",
+  "title": "Passive non-force Stellar continuity memory",
+  "description": "Append-only communication and illumination record. It describes continuity and never authorizes, dispatches, repairs, mutates, or executes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "memoryId", "sequence", "target", "shortfallIds", "totemIds", "observations", "recommendations", "artifactRefs", "previousIntegrityHash", "integrityHash"],
+  "properties": {
+    "schema": { "const": "stellar.non-force-continuity-memory/v0.1" },
+    "memoryId": { "$ref": "#/$defs/id" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "target": { "$ref": "#/$defs/text" },
+    "shortfallIds": { "$ref": "#/$defs/ids" },
+    "totemIds": { "$ref": "#/$defs/ids" },
+    "observations": { "$ref": "#/$defs/texts" },
+    "recommendations": { "$ref": "#/$defs/texts" },
+    "artifactRefs": { "$ref": "#/$defs/artifacts" },
+    "previousIntegrityHash": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/hash" }] },
+    "integrityHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{1,128}$" },
+    "text": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "ids": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "texts": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/text" } },
+    "artifacts": { "type": "array", "maxItems": 128, "items": { "type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": { "path": { "$ref": "#/$defs/text" }, "sha256": { "$ref": "#/$defs/hash" } } } }
+  }
+}

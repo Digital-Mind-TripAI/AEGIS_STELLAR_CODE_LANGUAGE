@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-llm-seed-envelope-v0.1.schema.json",
+  "title": "Stellar LLM Seed Envelope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "requestId", "source", "operation", "capabilities", "effects", "inputs"],
+  "properties": {
+    "schema": { "const": "stellar.llm-seed-envelope/v0.1" },
+    "version": { "const": "0.1" },
+    "requestId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$" },
+    "source": { "type": "string", "minLength": 1, "maxLength": 262144 },
+    "operation": { "enum": ["parse", "check", "format", "inspect", "package"] },
+    "capabilities": { "const": [] },
+    "effects": { "const": [] },
+    "inputs": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean"] }, "maxProperties": 32 }
+  }
+}

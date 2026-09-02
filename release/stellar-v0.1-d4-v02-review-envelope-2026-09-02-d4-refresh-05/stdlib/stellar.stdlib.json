@@ -1,0 +1,16 @@
+{
+  "schema": "stellar.stdlib/v0.1",
+  "name": "stellar-core",
+  "version": "0.1.0",
+  "target": "windows-x86_64-msvc",
+  "profile": "stellar-lab-v0",
+  "abi": "stellar-win64-v0.1",
+  "pureRelics": [
+    {"name":"core.checked","version":"0.1.0","interface":"interfaces/core.checked.relic.json","source":"sources/core.checked.asm"},
+    {"name":"core.memory","version":"0.1.0","interface":"interfaces/core.memory.relic.json","source":"sources/core.memory.asm"},
+    {"name":"core.result","version":"0.1.0","interface":"interfaces/core.result.relic.json","source":"sources/core.result.asm"}
+  ],
+  "capabilityDescriptors": [
+    {"name":"windows.console","descriptor":"capabilities/windows.console.relic.json","source":"sources/windows.console.asm","compiled":false,"authorized":false}
+  ]
+}

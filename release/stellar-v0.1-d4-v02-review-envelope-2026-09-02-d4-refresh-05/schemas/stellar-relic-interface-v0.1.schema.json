@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-relic-interface-v0.1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "name", "version", "target", "profile", "abi", "resultAbi", "argumentAbi", "exports", "effects", "imports"],
+  "properties": {
+    "schema": { "const": "stellar.relic-interface/v0.1" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "version": { "type": "string", "pattern": "^0\\.1\\.[0-9]+$" },
+    "target": { "const": "windows-x86_64-msvc" },
+    "profile": { "const": "stellar-lab-v0" },
+    "abi": { "const": "stellar-win64-v0.1" },
+    "resultAbi": { "const": "eax-status+caller-out-pointer/v1" },
+    "argumentAbi": { "const": "win64-ordinal-expanded/v1" },
+    "exports": {
+      "type": "array", "minItems": 1, "maxItems": 256,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "parameters", "result"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "parameters": { "type": "array", "maxItems": 64, "items": { "type": "string" } },
+          "result": { "type": "string" }
+        }
+      }
+    },
+    "effects": { "const": [] },
+    "imports": { "const": [] }
+  }
+}

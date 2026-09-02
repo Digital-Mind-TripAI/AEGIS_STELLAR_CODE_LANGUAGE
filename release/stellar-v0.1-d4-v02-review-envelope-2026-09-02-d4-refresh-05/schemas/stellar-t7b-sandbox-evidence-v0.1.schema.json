@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/stellar-t7b-sandbox-evidence-v0.1.schema.json",
+  "title": "Stellar T7b fixed-probe sandbox evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "status", "executionClass", "probe", "sandboxMode", "bindings", "image", "preResume", "runtimeReady", "networkPolicy", "guiPolicy", "filesystemScope", "jobFinal", "denied", "contained", "terminationReason", "observation", "exitCode", "output", "cleanup"],
+  "properties": {
+    "schema": { "const": "stellar.t7b-sandbox-evidence/v0.1" },
+    "status": { "const": "passed" },
+    "executionClass": { "const": "FIXED_SECURITY_PROBE_ONLY" },
+    "probe": { "enum": ["token-handles", "workspace-read", "workspace-write", "user-data-read", "user-data-write", "registry", "shared-temp", "network", "loopback", "device", "gui", "child-process", "child-breakaway", "crash", "infinite-loop", "memory-pressure", "output-flood"] },
+    "sandboxMode": { "const": "regular-appcontainer-zero-capability" },
+    "bindings": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runnerSha256", "importsSha256", "effectsSha256", "policySha256", "inputSha256", "resourceSha256"],
+      "properties": {
+        "runnerSha256": { "$ref": "#/$defs/hash" }, "importsSha256": { "$ref": "#/$defs/hash" }, "effectsSha256": { "$ref": "#/$defs/hash" }, "policySha256": { "$ref": "#/$defs/hash" }, "inputSha256": { "$ref": "#/$defs/hash" }, "resourceSha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "image": {
+      "type": "object", "additionalProperties": false,
+      "required": ["volumeSerial", "fileId", "retainedHandle", "reparseFree", "ancestorConfined", "createProcessPathResidual", "serviceIdentityRequired"],
+      "properties": { "volumeSerial": { "type": "string", "pattern": "^[0-9a-f]{16}$" }, "fileId": { "type": "string", "pattern": "^[0-9a-f]{32}$" }, "retainedHandle": { "const": true }, "reparseFree": { "const": true }, "ancestorConfined": { "const": true }, "createProcessPathResidual": { "const": true }, "serviceIdentityRequired": { "const": true } }
+    },
+    "preResume": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tokenIsAppContainer", "appContainerSidExact", "lowIntegrity", "capabilityCount", "jobMember", "jobLimitFlags", "activeProcessLimit", "processMemoryBytes", "processCpu100ns", "cpuRate", "depEnabled", "win32kDisabled", "handleList"],
+      "properties": {
+        "tokenIsAppContainer": { "const": true }, "appContainerSidExact": { "const": true }, "lowIntegrity": { "const": true }, "capabilityCount": { "const": 0 }, "jobMember": { "const": true }, "jobLimitFlags": { "const": 9482 }, "activeProcessLimit": { "const": 1 }, "processMemoryBytes": { "const": 67108864 }, "processCpu100ns": { "const": 10000000 }, "cpuRate": { "const": 2000 }, "depEnabled": { "const": true }, "win32kDisabled": { "const": true }, "handleList": { "const": "broker-specified-stdio-only" }
+      }
+    },
+    "runtimeReady": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runnerSelfVerified", "brokerVerified", "noPayloadBeforeVerification", "childProcessRestricted", "jobProcessCount", "noSecondJobPidObserved"],
+      "properties": { "runnerSelfVerified": { "const": true }, "brokerVerified": { "const": true }, "noPayloadBeforeVerification": { "const": true }, "childProcessRestricted": { "const": true }, "jobProcessCount": { "const": 1 }, "noSecondJobPidObserved": { "const": true } }
+    },
+    "networkPolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["brokerOwnedLoopbackListener", "completion", "wouldBlockAcceptedAsDenial", "loopbackListenerOutcome", "externalOutcome"],
+      "properties": { "brokerOwnedLoopbackListener": { "const": true }, "completion": { "const": "WSAPoll+SO_ERROR" }, "wouldBlockAcceptedAsDenial": { "const": false }, "loopbackListenerOutcome": { "enum": ["not-probed", "unreached"] }, "externalOutcome": { "enum": ["not-probed", "WSAEACCES"] } }
+    },
+    "guiPolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["win32kVerified", "expected", "outcome"],
+      "properties": { "win32kVerified": { "const": true }, "expected": { "const": "recognized-denial-exit-0" }, "outcome": { "enum": ["not-probed", "expected-denial-exit-0"] } }
+    },
+    "filesystemScope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim", "workspaceRead", "workspaceWrite", "userRead", "userWrite"],
+      "properties": { "claim": { "const": "fixed-targets-only" }, "workspaceRead": { "const": "package.json" }, "workspaceWrite": { "const": "unique-nonexistent-target" }, "userRead": { "const": "broker-created-sentinel" }, "userWrite": { "const": "unique-nonexistent-target" } }
+    },
+    "jobFinal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["totalProcesses", "activeProcesses", "terminatedProcesses", "sampledNoSecondProcess"],
+      "properties": { "totalProcesses": { "const": 1 }, "activeProcesses": { "const": 0 }, "terminatedProcesses": { "type": "integer", "minimum": 0, "maximum": 1 }, "sampledNoSecondProcess": { "const": true } }
+    },
+    "denied": { "type": "boolean" }, "contained": { "type": "boolean" }, "terminationReason": { "type": "string" }, "observation": { "type": "string" }, "exitCode": { "type": "integer", "minimum": 0, "maximum": 4294967295 },
+    "output": {
+      "type": "object", "additionalProperties": false,
+      "required": ["stdoutBytes", "stderrBytes", "totalBytes", "stdoutCap", "stderrCap", "totalCap"],
+      "properties": { "stdoutBytes": { "type": "integer", "minimum": 0, "maximum": 32768 }, "stderrBytes": { "type": "integer", "minimum": 0, "maximum": 32768 }, "totalBytes": { "type": "integer", "minimum": 0, "maximum": 65536 }, "stdoutCap": { "const": 32768 }, "stderrCap": { "const": 32768 }, "totalCap": { "const": 65536 } }
+    },
+    "cleanup": { "type": "object", "additionalProperties": false, "required": ["profileDeleted", "tempDeleted", "quarantined"], "properties": { "profileDeleted": { "const": true }, "tempDeleted": { "const": true }, "quarantined": { "const": false } } }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+}
