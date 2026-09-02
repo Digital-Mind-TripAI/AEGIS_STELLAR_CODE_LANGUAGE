@@ -1,0 +1,30 @@
+{
+  "schema": "stellar.totem-continuity/v0.1",
+  "totemId": "STELLAR-TOTEM-0004",
+  "kind": "record",
+  "state": "shortfall",
+  "parentTotemId": null,
+  "childTotemIds": [],
+  "shortfallIds": ["custodian-native-policy-and-command"],
+  "target": "Stellar capability issuance startup integration.",
+  "summary": "The gateway can now use an asynchronous Custodian-shaped signing boundary while preserving strict durable-store and no-fallback requirements. Native Custodian policy loading, authenticated command acceptance, and a live service signer remain closed.",
+  "observations": [
+    "Focused server tests verify canonical async signing, malformed signature refusal, Custodian-unavailable propagation, gateway durable-foundation rejection, and Lab configuration requirements.",
+    "The native Custodian source still refuses authenticated configuration and commands; no live foundation is wired into server/index.ts.",
+    "No installation, signing, elevation, activation, commit, or push was performed."
+  ],
+  "recommendations": [
+    "Implement and independently verify the native authenticated policy loader and signing command before wiring server/index.ts to a live Custodian client.",
+    "Keep Lab startup fail-closed until that native boundary is available."
+  ],
+  "artifacts": [
+    {"path": "server/stellar-capability-contract.ts", "sha256": "sha256:40c036d112b21ac7fc1ba817ec103de1b2f82f3d2d5f9b75eae5dd4390313728"},
+    {"path": "server/stellar-capability-service.ts", "sha256": "sha256:a88371942076efc08161c479807c6b76d2154459903589b40f850c4db504fe68"},
+    {"path": "server/stellar-capability-contract.test.ts", "sha256": "sha256:affb1103464a43d2c68c600abc0b82de9b5fc79224407f4d648f41a5fab4cf3f"}
+  ],
+  "provenance": [
+    {"source": "native/stellar/v0_1/service/src/custodian_service.cpp", "sha256": "sha256:b29a70deb960fe9578a256e778060f125f05404f1905b4de988ea268682fd417"}
+  ],
+  "previousIntegrityHash": null,
+  "integrityHash": "sha256:169b0868ae323d5b99a11c20cc17c93bd64306452e6cb20cec25dcabc5a32f4a"
+}
