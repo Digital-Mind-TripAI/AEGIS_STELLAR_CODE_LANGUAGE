@@ -24,13 +24,21 @@ test('grammar, type, layout, ABI and lowering inspection matches reviewed golden
   for(const entry of golden.entries){const result=run(['inspect',resolve(entry.target),'--view',entry.view]);assert.equal(result.status,0,result.stderr);assert.equal(sha(result.stdout),entry.sha256,`${entry.family}:${entry.view}`);}
 });
 
-test('overlapping Lab grammar remains deterministic against the Reference Preview oracle',async()=>{
+test('Reference Preview WAVE grammar remains deterministic against its parser and oracle',async()=>{
   const samples=[
     {source:'element bridge / SignalBridge ( gain: 1 ) ·\nflow bridge ~ Scale ( factor: 2 ) ·\n',signal:[1,2],output:[2,4]},
     {source:'element bridge / SignalBridge ( gain: 2 ) ·\nflow bridge ~ Offset ( amount: -1 ) ·\n',signal:[2,4],output:[1,3]},
     {source:'element bridge / SignalBridge ( gain: 1 ) ·\nflow bridge ~ Scale ( factor: 3 ) ~ Offset ( amount: 2 ) ·\n',signal:[-1,0,2],output:[-1,2,8]},
   ];
-  for(const [index,sample] of samples.entries()){const file=join(scratch,`differential-${index}.stellar`);writeFileSync(file,sample.source,'utf8');assert.equal(run(['check',file]).status,0);const first=await parseStellar(sample.source),second=await parseStellar(sample.source);assert.equal(first.hash,second.hash);const result=await executeStellar(first,{signal:sample.signal});assert.deepEqual(result.preview.output,sample.output);assert.equal(result.homeostasis.status,'NOT_EVALUATED');const formatted=run(['fmt',file]);assert.equal(formatted.status,0,formatted.stderr);assert.equal((await parseStellar(formatted.stdout)).ast.body.length,first.ast.body.length);}
+  for(const sample of samples){const first=await parseStellar(sample.source),second=await parseStellar(sample.source);assert.equal(first.hash,second.hash);const result=await executeStellar(first,{signal:sample.signal});assert.deepEqual(result.preview.output,sample.output);assert.equal(result.homeostasis.status,'NOT_EVALUATED');}
+});
+
+test('native CLI keeps the Reference Preview WAVE grammar outside the typed v0.1 boundary',()=>{
+  const file=join(scratch,'reference-preview-wave.stellar');
+  writeFileSync(file,'element bridge / SignalBridge ( gain: 1 ) ·\nflow bridge ~ Scale ( factor: 2 ) ·\n','utf8');
+  const result=run(['check',file]);
+  assert.equal(result.status,1);
+  assert.match(result.stderr,/S1009/);
 });
 
 test('fixed-seed bounded property corpus is byte-deterministic and never times out',()=>{

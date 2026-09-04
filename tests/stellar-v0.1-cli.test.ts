@@ -34,31 +34,39 @@ test('check emits stable human and JSON diagnostics with spans and help', () => 
   writeFileSync(invalid, 'element bridge / SignalBridge ( gain: 1 )', 'utf8');
   const human = run(['check', invalid]);
   assert.equal(human.status, 1);
-  assert.match(human.stderr, /S1001/);
+  assert.match(human.stderr, /S1009/);
   assert.match(human.stderr, /1:42/);
-  assert.match(human.stderr, /help: terminate the statement with/);
+  assert.match(human.stderr, /help: follow the v0.1 typed grammar/);
   const json = run(['check', invalid, '--diagnostic-format', 'json']);
   assert.equal(json.status, 1);
   const diagnostic = JSON.parse(json.stderr.trim());
   assert.deepEqual(diagnostic, {
-    code: 'S1001', severity: 'error', message: "expected statement terminator '·'",
+    code: 'S1009', severity: 'error', message: "expected '·' after element",
     file: invalid.replaceAll('\\', '/'),
     span: { start: { offset: 41, line: 1, column: 42 }, end: { offset: 41, line: 1, column: 42 } },
     primarySpan: { start: { offset: 41, line: 1, column: 42 }, end: { offset: 41, line: 1, column: 42 } },
     secondarySpans: [],
     stage: 'lex-parse',
-    help: "terminate the statement with '·' (ASCII ';' is accepted)",
+    help: 'follow the v0.1 typed grammar',
   });
 });
 
 test('formatter is canonical, ASCII-normalizing, and idempotent', () => {
   const source = join(scratch, 'format.stellar');
-  writeFileSync(source, 'element   bridge / SignalBridge(gain:1);\nflow bridge~Scale(factor:2);\n', 'utf8');
+  writeFileSync(source, [
+    'element   source / Signal();',
+    'element target/Signal();',
+    'flow signal-path/Relational(node:source/element,node:target/element,edge:supports-edge/supports(from:source,to:target,order:1,condition:eq>=0.8,condition:witness==true),state:declared,shortfall:pending-witness,gap_pause:awaiting-witness);',
+    'function main()/Result(i32)(return ok(0););',
+    '',
+  ].join('\n'), 'utf8');
   const first = run(['fmt', source]);
   assert.equal(first.status, 0, first.stderr);
   assert.equal(first.stdout, [
-    'element bridge / SignalBridge ( gain: 1 ) ·',
-    'flow bridge ~ Scale ( factor: 2 ) ·',
+    'element source / Signal ( ) ·',
+    'element target / Signal ( ) ·',
+    'flow signal-path / Relational ( node: source / element, node: target / element, edge: supports-edge / supports ( from: source, to: target, order: 1, condition: eq >= 0.8, condition: witness == true ), state: declared, shortfall: pending-witness, gap_pause: awaiting-witness ) ·',
+    'function main ( ) / Result ( i32 ) ( return ok ( 0 ) · ) ·',
     '',
   ].join('\n'));
   const canonical = join(scratch, 'canonical.stellar');
@@ -81,11 +89,16 @@ test('source manager rejects invalid UTF-8, NUL, and oversized input determinist
   assert.match(run(['check', badUtf8]).stderr, /S0003/);
 });
 
-test('bounded parser skeleton accepts the reviewed Phase A and Phase C source fixtures', () => {
-  for (const fixture of ['signal-bridge.stellar', 'phase-c-core.stellar']) {
-    const result = run(['check', resolve('native/stellar/tests/fixtures', fixture)]);
-    assert.equal(result.status, 0, `${fixture}: ${result.stderr}`);
-  }
+test('bounded parser skeleton accepts the reviewed Phase C source fixture', () => {
+  const result = run(['check', resolve('native/stellar/tests/fixtures/phase-c-core.stellar')]);
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test('native CLI keeps the legacy Preview WAVE fixture outside the typed v0.1 boundary', () => {
+  const result = run(['check', resolve('native/stellar/tests/fixtures/signal-bridge.stellar')]);
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /S1009/);
+  assert.match(result.stderr, /expected '\/' before relational-flow kind/);
 });
 
 test('manifest and lock inspection canonicalize, hash, and reject tamper or path escape', () => {
