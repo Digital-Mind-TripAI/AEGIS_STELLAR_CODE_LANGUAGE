@@ -1,0 +1,52 @@
+{
+  "schema": "stellar.totem-continuity/v0.1",
+  "totemId": "STELLAR-TOTEM-0009",
+  "kind": "record",
+  "state": "complete",
+  "parentTotemId": null,
+  "childTotemIds": [],
+  "shortfallIds": [],
+  "target": "Record the recovered D3 offline verifier outcome while preserving the pre-fix failure as historical contrast and retaining closed operational gates.",
+  "summary": "STELLAR-TOTEM-0008 remains historical and unchanged: its fresh isolated verifier run failed while compiling canonical_json.cpp because bcrypt.h was included before the Windows base declarations required by its CNG declarations. The current fixed source establishes windows.h before bcrypt.h, and the fresh offline verifier evidence at native/stellar/v0_1/evidence/d3-v02-shortfall-fix-20260904-0119-post/t7d-d3-offline-build.json reports reproducible MSVC builds, a passed canonical JSON self-test, a passed durable-state self-test, and eight passed production-path harnesses. This is offline evidence only: installation, signing, trust establishment, deployment, service mutation, key creation, S7001 activity, commit, and push remain closed or unperformed.",
+  "observations": [
+    "The successful evidence binds canonical_json.cpp to sha256:e9ea6b95d5806d38126f197b7f02376000fb8c79f03775e21715714006899a34 and reports it as a two-build reproducible object input.",
+    "The focused D3 completion test binds the Windows include-order regression guard to sha256:a21a22b81513156028310c30bb946514c965ceed9dda5fbc82fce6cfe722ebfe.",
+    "The pre-fix historical contrast remains preserved at native/stellar/v0_1/evidence/d3-v02-shortfall-fix-20260904-0115-pre, which contains only the early generated directories and no t7d-d3-offline-build.json; STELLAR-TOTEM-0008 separately records the prior canonical_json.cpp T7D_D3_BUILD_FAILED outcome.",
+    "The fresh successful evidence reports reproducible=true, nativeCanonicalJsonSelfTest=passed, nativeDurableSelfTest=passed, 12 multiprocess workers, and exactly one reservation and dispatch authorization with one callback invocation.",
+    "The fresh successful evidence records powerLossOrKillInjectionPerformed=false, installationPerformed=false, keyCreationPerformed=false, serviceMutationPerformed=false, and s7001=CLOSED. It does not establish signing, deployment, installed-service execution, or production trust."
+  ],
+  "recommendations": [
+    "Treat this Totem as passive continuity evidence only; it authorizes no installation, signing, trust change, service activation, deployment, S7001 activity, commit, or push.",
+    "Keep any installation, signing, trust, deployment, and S7001 progression as separate explicitly approved gates with their own fresh evidence."
+  ],
+  "artifacts": [
+    {
+      "path": "native/stellar/v0_1/evidence/d3-v02-shortfall-fix-20260904-0119-post/t7d-d3-offline-build.json",
+      "sha256": "sha256:8048fd3438142d1d52e1beb0f4c6f7e74f18d41b89a99c37abfee066442b22df"
+    },
+    {
+      "path": "native/stellar/v0_1/service/src/canonical_json.cpp",
+      "sha256": "sha256:e9ea6b95d5806d38126f197b7f02376000fb8c79f03775e21715714006899a34"
+    },
+    {
+      "path": "native/stellar/v0_1/service/tools/verify-d3-offline.ps1",
+      "sha256": "sha256:f08705b33bbb0abf5eeba117992afe96742d05deb9a3c6b3115b12a8a2ec059e"
+    },
+    {
+      "path": "native/stellar/v0_1/tests/tranche7d-d3-completion.test.ts",
+      "sha256": "sha256:a21a22b81513156028310c30bb946514c965ceed9dda5fbc82fce6cfe722ebfe"
+    },
+    {
+      "path": "native/stellar/v0_1/evidence/stellar-totem-0008-d3-verifier-drift-reconciliation.json",
+      "sha256": "sha256:a0dba850e9efc33ae909a8152157058259b5af411ad8c4ceefe08fd73329643f"
+    }
+  ],
+  "provenance": [
+    {
+      "source": "native/stellar/v0_1/schemas/stellar-totem-continuity-v0.1.schema.json",
+      "sha256": "sha256:792e2701ca9f5a164ed3f2055194c2533beb80b4cb02dd98e7c8e5e53d0a407b"
+    }
+  ],
+  "previousIntegrityHash": "sha256:8ee7362f8c9e0058fb2f4f501d56e1275e7b369a863627d6e0889e99d5bd000e",
+  "integrityHash": "sha256:7886fe2ec2b4f2b65339bb1d5d4f6483dae3eb6a1663117603d2a3e3ed3ad58b"
+}

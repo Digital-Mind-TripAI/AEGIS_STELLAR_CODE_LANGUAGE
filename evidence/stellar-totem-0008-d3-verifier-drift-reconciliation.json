@@ -1,0 +1,46 @@
+{
+  "schema": "stellar.totem-continuity/v0.1",
+  "totemId": "STELLAR-TOTEM-0008",
+  "kind": "record",
+  "state": "shortfall",
+  "parentTotemId": null,
+  "childTotemIds": [],
+  "shortfallIds": [
+    "d3-offline-verifier-historical-hash-drift",
+    "d3-offline-verifier-compile-failure"
+  ],
+  "target": "Reconcile the current D3 offline verifier binding and isolated verification outcome without altering historical Totems.",
+  "summary": "STELLAR-TOTEM-0005 remains historical and unchanged: it bound verify-d3-offline.ps1 to sha256:1e3bac42993a486ddecb4140fc00f14e6d22334ee3ae12ba11ddb03ea184ec19. The current source-tree verifier hashes to sha256:f08705b33bbb0abf5eeba117992afe96742d05deb9a3c6b3115b12a8a2ec059e. A fresh isolated run at native/stellar/v0_1/evidence/d3-v02-totem-reconcile-20260903-0145 failed during the first canonical_json.cpp build with T7D_D3_BUILD_FAILED after bcrypt.h NTSTATUS C4430/C2146 errors; it produced no t7d-d3-offline-build.json. Installation, signing, key creation, service mutation, deployment, commit, and push remain closed.",
+  "observations": [
+    "The verifier removes only its generated child directories beneath the supplied evidence root; the root was fresh, and no existing evidence was overwritten or deleted.",
+    "The isolated output contains no files or retained-output hashes; only empty pass-1 and reproducible-path directories were created before failure.",
+    "The recorded STELLAR-TOTEM-0005 verifier hash is historical drift, not a claim about the current source-tree verifier.",
+    "The current verifier was untracked before and after the isolated run; the run introduced no staged or tracked-file delta."
+  ],
+  "recommendations": [
+    "Resolve the MSVC/Windows SDK NTSTATUS compile incompatibility under a separately approved toolchain-change scope, then rerun the verifier in another fresh evidence destination.",
+    "Treat any future successful output as new evidence and append a later Totem; do not rewrite STELLAR-TOTEM-0005 or this reconciliation."
+  ],
+  "artifacts": [
+    {
+      "path": "native/stellar/v0_1/service/tools/verify-d3-offline.ps1",
+      "sha256": "sha256:f08705b33bbb0abf5eeba117992afe96742d05deb9a3c6b3115b12a8a2ec059e"
+    },
+    {
+      "path": "native/stellar/v0_1/evidence/stellar-totem-0005-custodian-policy-loader.json",
+      "sha256": "sha256:0afaccf0d1c8b59969a9932bbb672a4ed14d43f147aee57784546ceac20a7c8a"
+    },
+    {
+      "path": "native/stellar/v0_1/evidence/stellar-totem-0007-repository-working-tree-status.json",
+      "sha256": "sha256:95ec57debe4e139204d7eac0943e521e9e7680826334daf0bde0642077a958c2"
+    }
+  ],
+  "provenance": [
+    {
+      "source": "native/stellar/v0_1/schemas/stellar-totem-continuity-v0.1.schema.json",
+      "sha256": "sha256:792e2701ca9f5a164ed3f2055194c2533beb80b4cb02dd98e7c8e5e53d0a407b"
+    }
+  ],
+  "previousIntegrityHash": "sha256:10e5ae6161cda713e35a9ff62415efc56c4ffea93b553f83a3ea3527d4f2159b",
+  "integrityHash": "sha256:8ee7362f8c9e0058fb2f4f501d56e1275e7b369a863627d6e0889e99d5bd000e"
+}
