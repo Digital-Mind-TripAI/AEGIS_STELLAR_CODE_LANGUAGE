@@ -1,0 +1,3 @@
+#include "startup_gate_sequence.h"
+using namespace stellar::service;
+int main(){const wchar_t*gates[]={L"config",L"release-manifest",L"key-registry",L"protected-acl-roots",L"pipe-dacl-create",L"self-attestation-static-imports",L"worker-ready"};StartupGateSequence valid;for(auto gate:gates)if(!valid.Checkpoint(gate,true))return 1;if(!valid.Ready())return 2;for(int fail=0;fail<7;++fail){StartupGateSequence candidate;for(int i=0;i<7;++i)if(candidate.Checkpoint(gates[i],i!=fail)!=(i<fail))break;if(candidate.Ready())return 3;}StartupGateSequence order;if(order.Checkpoint(gates[1],true)||order.Ready())return 4;return 0;}
