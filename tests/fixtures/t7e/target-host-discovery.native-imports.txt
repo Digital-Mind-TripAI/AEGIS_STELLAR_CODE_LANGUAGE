@@ -1,0 +1,198 @@
+Microsoft (R) COFF/PE Dumper Version 14.51.36256.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file native\stellar\v0_1\evidence\t7e-v02-audit-closure-v3\stellar-target-host-discovery.exe
+
+File Type: EXECUTABLE IMAGE
+
+  Section contains the following imports:
+
+    ADVAPI32.dll
+             140036000 Import Address Table
+             140047788 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         20F OpenProcessToken
+                         15B GetTokenInformation
+                         198 LookupPrivilegeNameW
+                         255 RegCloseKey
+                         279 RegGetKeySecurity
+                         286 RegOpenKeyExW
+                         27B RegGetValueW
+                          65 CloseServiceHandle
+                         211 OpenSCManagerW
+                         213 OpenServiceW
+                         245 QueryServiceConfigW
+                         243 QueryServiceConfig2W
+                         249 QueryServiceObjectSecurity
+                         24B QueryServiceStatusEx
+                          7B ConvertSidToStringSidW
+                          79 ConvertSecurityDescriptorToStringSecurityDescriptorW
+                         14E GetSecurityInfo
+                          20 AllocateAndInitializeSid
+                         105 EqualSid
+                         11F FreeSid
+                         122 GetAce
+                         136 GetLengthSid
+                         148 GetSecurityDescriptorDacl
+                         14B GetSecurityDescriptorOwner
+                         186 IsValidAcl
+                         188 IsValidSecurityDescriptor
+                         189 IsValidSid
+                         1FA MapGenericMask
+
+    bcrypt.dll
+             1400363C8 Import Address Table
+             140047B50 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                           2 BCryptCloseAlgorithmProvider
+                          29 BCryptOpenAlgorithmProvider
+                           6 BCryptCreateHash
+                          25 BCryptHashData
+                          1D BCryptFinishHash
+                          23 BCryptGetProperty
+                           E BCryptDestroyHash
+
+    CRYPT32.dll
+             1400360E8 Import Address Table
+             140047870 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          2C CertEnumCertificatesInStore
+                          12 CertCloseStore
+                          59 CertOpenStore
+                          46 CertGetCertificateContextProperty
+
+    ncrypt.dll
+             140036408 Import Address Table
+             140047B90 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          52 NCryptGetProperty
+                          4E NCryptExportKey
+                          51 NCryptFreeObject
+                          59 NCryptOpenKey
+                          5B NCryptOpenStorageProvider
+
+    SHELL32.dll
+             1400363B8 Import Address Table
+             140047B40 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         15A SHGetKnownFolderPath
+
+    ole32.dll
+             140036438 Import Address Table
+             140047BC0 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                          8C CoTaskMemFree
+
+    KERNEL32.dll
+             140036110 Import Address Table
+             140047898 Import Name Table
+                     0 time date stamp
+                     0 Index of first forwarder reference
+
+                         383 HeapReAlloc
+                         229 GetConsoleOutputCP
+                         225 GetConsoleMode
+                         65F WriteConsoleW
+                         569 SetFilePointerEx
+                         385 HeapSize
+                         2E4 GetProcessHeap
+                         3E4 LCMapStringW
+                          B3 CompareStringW
+                         3F6 LoadLibraryExW
+                         61A VirtualProtect
+                          E6 CreateFileW
+                         19D FindClose
+                         1C8 FlushFileBuffers
+                         270 GetFileAttributesW
+                         272 GetFileInformationByHandle
+                         278 GetFileSizeEx
+                         4A9 ReadFile
+                         568 SetFilePointer
+                         660 WriteFile
+                         1AA FindFirstStreamW
+                         1B5 FindNextStreamW
+                          9D CloseHandle
+                         28D GetLastError
+                         241 GetCurrentProcess
+                         3FA LoadResource
+                         40E LockResource
+                         5C7 SizeofResource
+                         1BE FindResourceW
+                         402 LocalFree
+                         208 GetComputerNameW
+                         273 GetFileInformationByHandleEx
+                         64C WideCharToMultiByte
+                         481 QueryPerformanceCounter
+                         242 GetCurrentProcessId
+                         246 GetCurrentThreadId
+                         31A GetSystemTimeAsFileTime
+                         39A InitializeSListHead
+                         5B8 SetUnhandledExceptionFilter
+                         301 GetStartupInfoW
+                         2A5 GetModuleHandleW
+                         513 RtlPcToFileHeader
+                         498 RaiseException
+                         511 RtlLookupFunctionEntry
+                         517 RtlUnwindEx
+                         578 SetLastError
+                         1C2 FlsAlloc
+                         1C4 FlsGetValue
+                         1C6 FlsSetValue
+                         1C3 FlsFree
+                         153 EncodePointer
+                         157 EnterCriticalSection
+                         3F0 LeaveCriticalSection
+                         397 InitializeCriticalSectionEx
+                         12F DeleteCriticalSection
+                         303 GetStdHandle
+                         2A1 GetModuleFileNameW
+                         186 ExitProcess
+                         5D8 TerminateProcess
+                         1D4 FreeLibrary
+                         2A4 GetModuleHandleExW
+                         2DD GetProcAddress
+                         1FF GetCommandLineA
+                         200 GetCommandLineW
+                         3B8 IsProcessorFeaturePresent
+                         509 RtlCaptureContext
+                         518 RtlVirtualUnwind
+                         3B0 IsDebuggerPresent
+                         5FB UnhandledExceptionFilter
+                         380 HeapFree
+                         37C HeapAlloc
+                         27A GetFileType
+                         1A3 FindFirstFileExW
+                         1B4 FindNextFileW
+                         3BE IsValidCodePage
+                         1DB GetACP
+                         2C6 GetOEMCP
+                         1EA GetCPInfo
+                         423 MultiByteToWideChar
+                         262 GetEnvironmentStringsW
+                         1D3 FreeEnvironmentStringsW
+                         55A SetEnvironmentVariableW
+                         593 SetStdHandle
+                         308 GetStringTypeW
+
+  Summary
+
+        2000 .data
+        1000 .fptable
+        4000 .pdata
+       13000 .rdata
+        1000 .reloc
+       18000 .rsrc
+       35000 .text

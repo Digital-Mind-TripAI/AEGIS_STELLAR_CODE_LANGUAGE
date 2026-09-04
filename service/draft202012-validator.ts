@@ -1,0 +1,16 @@
+const kind=(v:unknown)=>Array.isArray(v)?"array":v===null?"null":typeof v;
+const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
+export function validateDraft202012(schema:any,value:any,path="$",root=schema):void{
+  if(schema===true)return;if(schema===false)throw new Error(`${path}: false schema`);
+  if(schema.$ref){if(typeof schema.$ref!=="string"||!schema.$ref.startsWith("#/"))throw new Error(`${path}: unsupported ref`);let target=root;for(const part of schema.$ref.slice(2).split("/"))target=target[part.replace(/~1/g,"/").replace(/~0/g,"~")];return validateDraft202012(target,value,path,root);}
+  if(schema.const!==undefined&&!equal(value,schema.const))throw new Error(`${path}: const`);
+  if(schema.enum&&!schema.enum.some((x:any)=>equal(x,value)))throw new Error(`${path}: enum`);
+  if(schema.type){const actual=kind(value);if(schema.type==="integer"?!(typeof value==="number"&&Number.isSafeInteger(value)):actual!==schema.type)throw new Error(`${path}: type ${schema.type}`);}
+  if(typeof value==="string"){if(schema.minLength!==undefined&&value.length<schema.minLength)throw new Error(`${path}: minLength`);if(schema.maxLength!==undefined&&value.length>schema.maxLength)throw new Error(`${path}: maxLength`);if(schema.pattern!==undefined&&!new RegExp(schema.pattern,"u").test(value))throw new Error(`${path}: pattern`);}
+  if(typeof value==="number"){if(schema.minimum!==undefined&&value<schema.minimum)throw new Error(`${path}: minimum`);if(schema.maximum!==undefined&&value>schema.maximum)throw new Error(`${path}: maximum`);}
+  if(Array.isArray(value)){if(schema.maxItems!==undefined&&value.length>schema.maxItems)throw new Error(`${path}: maxItems`);if(schema.minItems!==undefined&&value.length<schema.minItems)throw new Error(`${path}: minItems`);if(schema.uniqueItems&&new Set(value.map((x:unknown)=>JSON.stringify(x))).size!==value.length)throw new Error(`${path}: uniqueItems`);if(schema.items)for(let i=0;i<value.length;i++)validateDraft202012(schema.items,value[i],`${path}[${i}]`,root);}
+  if(value&&typeof value==="object"&&!Array.isArray(value)){const keys=Object.keys(value);if(schema.minProperties!==undefined&&keys.length<schema.minProperties)throw new Error(`${path}: minProperties`);if(schema.maxProperties!==undefined&&keys.length>schema.maxProperties)throw new Error(`${path}: maxProperties`);for(const required of schema.required??[])if(!(required in value))throw new Error(`${path}: required ${required}`);for(const [key,child] of Object.entries(schema.properties??{}))if(key in value)validateDraft202012(child,(value as any)[key],`${path}.${key}`,root);if(schema.additionalProperties===false)for(const key of keys)if(!(key in (schema.properties??{})))throw new Error(`${path}: additional ${key}`);}
+  if(schema.allOf)for(const child of schema.allOf)validateDraft202012(child,value,path,root);
+  if(schema.oneOf){let accepted=0;for(const child of schema.oneOf)try{validateDraft202012(child,value,path,root);accepted++;}catch{}if(accepted!==1)throw new Error(`${path}: oneOf`);}
+  if(schema.if){let matches=true;try{validateDraft202012(schema.if,value,path,root);}catch{matches=false;}if(matches&&schema.then)validateDraft202012(schema.then,value,path,root);if(!matches&&schema.else)validateDraft202012(schema.else,value,path,root);}
+}
